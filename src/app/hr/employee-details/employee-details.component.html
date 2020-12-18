@@ -1,0 +1,36 @@
+<div class="row-wrap">
+  <div class="w-100">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="pills">
+          <ul class="nav nav-pills" style="margin-top: 15px;">
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/hr/employee-details/cash-impressed']">
+                <mat-icon>grid_on</mat-icon> Cash Impressed
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/hr/employee-details/company-assets']">
+                <mat-icon>crop_square</mat-icon> Company Assets
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/hr/employee-details/employee-list']">
+                <mat-icon>public </mat-icon> Employee List
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/hr/employee-details/salary-sheet']">
+                <mat-icon>place </mat-icon> Salary Sheet
+              </a>
+            </li>
+           
+           
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

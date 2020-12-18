@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-sm-12 pull-right no-padding">
+    
+        
+      
+      <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" (click)="openTestResults()">
+           Add Test Results
+      </button>
+      <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" >
+        Download Sample
+      </button>
+      
+    </div>
+    <div class="col-xs-12">
+        <div id="grid-table-container" class="table-responsive">
+            <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr>
+                        <th >Test Name</th>
+                        <th >Test Date</th>
+                        <th >Lab Name</th>
+                        <th class="text-center">Parameters</th>
+                        <th class="text-center">Positive</th>
+                        <th class="text-center">Results</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let value of values">
+                    
+                        <td >{{value.test_name }}</td>
+                        <td >{{value.date }}</td>
+                        <td >{{value.lab_name }}</td>
+                        <td class="text-center"><a style="color: blue;cursor: pointer;text-decoration: underline;" (click)="openParameters(item)">{{value.parameters}}</a></td>
+                        <td class="text-center">
+                            <input type="checkbox">
+                        </td>
+                        <td class="text-center"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>
+                        <td class="text-center">{{value.status}}</td>
+                        <td  class="text-center">
+                            <a style="cursor: pointer; " >
+                                <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                            </a>
+                            <a ><i class="fa fa-trash red"   style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+                        </td>
+                    </tr>
+   
+                </tbody>
+            </table>
+            <mat-paginator 
+                [pageSizeOptions]="[9, 10, 25, 50, 100]"
+                showFirstLastButtons>
+            </mat-paginator>
+                <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+                [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+                showFirstLastButtons></mat-paginator> -->
+        </div>
+    </div>
+</div>

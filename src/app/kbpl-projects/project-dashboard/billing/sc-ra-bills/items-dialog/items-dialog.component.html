@@ -1,0 +1,79 @@
+
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+<div class="row" style="margin-bottom:7px;">
+ 
+ 
+</div>
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th >Description</th>
+                      <th class="text-center">Unit</th>
+                      
+                      <th class="text-center">Rate</th>
+                      <th class="text-center">Plan Qty</th>
+                      <th class="text-center">Billed Qty</th>
+                      <th class="text-center">Approved Qty</th>
+                      <th class="text-center">Billed Amount</th>
+                      <th class="text-center">Paid Amount</th>
+                      <th class="text-center">Remarks</th>
+                      <th class="text-center">Status</th>
+                    
+                      <th class="text-center" style="width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of items">
+                      <td style="min-width: 70px !important;">
+                          {{item.Description}}
+                    
+                  </td>
+                  <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                  
+                  <td style="text-align: center!important;">{{item.Unit}}</td>
+                  <td style="text-align: center!important;">{{item.Rate}}</td>
+                  <td style="text-align: center!important;">{{item.Plan_Qty }}</td>
+                  <td style="text-align: center!important;">{{item.Billed_Qty }}</td>
+                  <td style="text-align: center!important;">{{item.Approved_Qty }}</td>
+                  <td style="text-align: center!important;">{{item.Billed_Amount }}</td>
+                  <td style="text-align: center!important;">{{item.Paid_Amount }}</td>
+                  <td style="text-align: center!important;">{{item.Remarks }}</td>
+                  <!--<td style="text-align: center!important;">{{item.Incharge }}</td>
+                  <td style="text-align: center!important;">
+                    <a href="https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf" target="_blank">View</a>
+                  </td>
+                  <td style="text-align: center!important;"><a (click)="openpreviousDialog('add')" style="color:#007ad9;cursor:pointer;">{{item.previous}}</a></td>-->
+                  <td style="text-align: center!important;"><a style="color: blue;"> {{item.Status }}</a></td>
+         
+                  
+      <td  class="text-center">
+          <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Item" >
+              <i class="fa fa-edit" style="color: cornflowerblue"></i>
+          </a>
+          
+          <a ><i class="fa fa-trash red" matTooltip="Delete Item"  style="cursor: pointer;"></i></a>
+      </td> 
+  </tr>
+ 
+</tbody>
+</table>
+ 
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>
+
+  </div>
+ 
+</div>
+<mat-dialog-actions class="col-sm-11.7" align="end" >
+  <button mat-raised-button class="CancelClass" style="margin-right: 20px;margin-top: -10px;" (click)="close()">
+    &nbsp;Close
+  </button>
+</mat-dialog-actions>

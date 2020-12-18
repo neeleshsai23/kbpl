@@ -1,0 +1,70 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <div class="row wrap" style="margin-bottom:7px;">
+      <div class="col-sm-10">
+        <div class="pills w-100 flex-p">
+          <ul class="nav nav-pills">
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mrc/admin/masterdata/industry']"><mat-icon>highlight</mat-icon> Industries</a></li>
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mrc/admin/masterdata/location']"><mat-icon>outlined_flag</mat-icon> Countries</a></li>
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mrc/admin/masterdata/fat']"><mat-icon>library_books</mat-icon> FAT</a></li>
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mrc/admin/masterdata/doctype']"><mat-icon>library_add</mat-icon> Document Types</a></li>
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mrc/admin/masterdata/loca']"><mat-icon>add_location_alt</mat-icon> Locations</a></li>
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mrc/admin/masterdata/entity']"><mat-icon>business</mat-icon> Entities</a></li>
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/mrc/admin/masterdata/color']"><mat-icon>color_lens</mat-icon> Color-Codes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="w-100 flex-p">
+          <button mat-raised-button class="pull-right btn-primary" (click)="openUserDialog('Add')"><mat-icon>add</mat-icon>&nbsp;Add
+            Entity</button>
+          </div>
+        </div>
+      </div>
+      
+      <div fxLayout="row wrap">
+        <div class="table-responsive">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+              <tr class="tr-grid-header">
+                <th>Entity</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let applicant of tableList">
+                <td>{{applicant.fat}}</td>
+                <td>
+                  <a 
+                  class="status"
+                  mwlConfirmationPopover
+                  [popoverTitle]="popoverStatusTitle"
+                  [popoverMessage]="popoverStatusMessage"
+                  placement="left"
+                  (confirm)="saveStatus();applicant.status=!applicant.status"
+                  (cancel)="cancelClicked = true">
+                  {{applicant.status?'Active':'Inactive'}}
+                </a>
+              </td>
+              <td>
+                <a title="Edit Entity" style="margin-right: 10px; cursor: pointer;" (click)="openUserDialog('Edit')">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                [popoverMessage]="popoverMessage"
+                placement="left"
+                (confirm)="deleteUser()"
+                (cancel)="cancelClicked = true">
+                <i style="cursor: pointer;" title="Delete Entity" class="fa fa-trash red"></i>
+              </a>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

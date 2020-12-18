@@ -1,0 +1,43 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Limiting History - DL1GC5038
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th class="text-center">Date</th>
+                      <th class="text-center">Normal Limit</th>
+                      <th class="text-center">Running Limit</th>
+                      <th class="text-center">Variation Limit</th>
+                      <th class="text-center">Notification</th>
+                      <!-- <th class="text-center">Percent Completion</th> -->
+                      <!-- <th class="text-center">Invoiced</th> -->
+                      <!-- <th class="text-center">Status</th> -->
+                      <!-- <th class="text-center" style="width: 112px!important;">Actions</th> -->
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of values">
+                    <td class="text-center">{{item.date}}</td>
+                    <td class="text-center">{{item.normal}}</td>
+                    <td class="text-center">{{item.running}}</td>
+                    <td class="text-center">{{item.variation}}</td>
+                    <td class="text-center">{{item.notification}}</td>
+                </tr>
+                
+              </tbody>
+            </table>
+</div>
+</div>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button class="btn-primary"> <span
+           >Save</span></button>
+  <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Close</button>
+</mat-dialog-actions> 

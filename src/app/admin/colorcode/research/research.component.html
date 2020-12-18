@@ -1,0 +1,135 @@
+
+<div fxLayout="row wrap" >
+  <div class="w-100">
+    
+    <div class="row wrap">
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <div class="pills w-100 flex-p">
+          <ul class="nav nav-pills ">
+            <li routerLinkActive="active">
+              <a mat-raised-button [routerLink]="['/salesglobal/admin/colorcode/conversations']">
+                <mat-icon>group</mat-icon> Conversations 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button [routerLink]="['/salesglobal/admin/colorcode/projectbrief']">
+                <mat-icon>check_circle</mat-icon> Project Brief
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button [routerLink]="['/salesglobal/admin/colorcode/samples']">
+                <mat-icon>grid_on</mat-icon> Samples 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button [routerLink]="['/salesglobal/admin/colorcode/feedback']">
+                <mat-icon>outlined_flag</mat-icon> Feedback 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button [routerLink]="['/salesglobal/admin/colorcode/tracking']">
+                <mat-icon>highlight</mat-icon> Tracking 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button [routerLink]="['/salesglobal/admin/colorcode/conversion']">
+                <mat-icon>highlight</mat-icon> Conversion 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button [routerLink]="['/salesglobal/admin/colorcode/cultivation']">
+                <mat-icon>highlight</mat-icon> Cultivation 
+              </a>
+            </li>
+          </ul>
+          <!-- <ul class="nav nav-pills ">
+            <li routerLinkActive="active">
+              <a mat-raised-button>
+                <mat-icon>group</mat-icon> Conversations 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button>
+                <mat-icon>check_circle</mat-icon> Project Brief
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button>
+                <mat-icon>grid_on</mat-icon> Samples 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button>
+                <mat-icon>outlined_flag</mat-icon> Feedback 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button>
+                <mat-icon>highlight</mat-icon> Tracking 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button>
+                <mat-icon>highlight</mat-icon> Conversion 
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button>
+                <mat-icon>highlight</mat-icon> Cultivation 
+              </a>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+      <div class="col-xs-2" style="margin-right:0px !important">
+        <div class="w-100 flex-p">
+          <button mat-raised-button class="add-hover pull-right" style="background:#229494;color: white;" (click)="openUserDialog(null)">
+            <mat-icon>add</mat-icon>&nbsp;Add
+            Color Code
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table id="example2" class="table table-bordered table-hover table-striped">
+        <thead class="tbl-head">
+          <tr class="tr-grid-header">
+            <th>Color</th>
+            <th style="min-width: 120px;">Color Code Name</th>
+            <th class='text-center' style="min-width: 60px;">Default</th>
+            <th>Description</th>
+            <!-- <th>Status</th> -->
+            <th class='text-center'>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of colorCodes">
+            <td [style.background-color]="item.color_code">{{item.color}}</td>
+            <td>{{item.color_code_name}}</td>
+            <td class='text-center'>
+              <mat-radio-group (change)="updateColorCode(item)">
+                <mat-radio-button [checked]="item.is_default==1 ? true : false"  value="true"></mat-radio-button>
+              </mat-radio-group>
+              <!-- <mat-radio-group>
+                <mat-radio-button [disabled]="1" [checked]="item.is_default==1 ? true : false"  value="true"></mat-radio-button>
+                
+              </mat-radio-group> -->
+            </td>
+            <td>{{item.color_description}}</td>
+            
+            <td class='text-center'>
+              <a (click)="openUserDialog(item)" style="margin-right: 10px; cursor: pointer;">
+                <i title="Edit Color Code" class="fa fa-edit"></i>
+              </a>
+              <a (click)="deletColor(item.color_code_id)">
+                <i style="cursor: pointer;" title="Delete Color Code" class="fa fa-trash red"></i>
+              </a>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+      <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+    </div>
+  </div>
+</div>

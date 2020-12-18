@@ -1,0 +1,128 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Add Rates
+  </h1>
+</div>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-xs-12">
+        <div id="grid-table-container" class="table-responsive">
+            <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr>
+                        <th >Vendor</th>
+                        <th class="text-center">Unit</th>
+                        <th class="text-center">Quote</th>
+                        <th class="text-center">Min Value</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr >
+                        <td style="width: 200px !important;">
+                          <mat-select class="form-control" placeholder = "">
+                            <mat-option> M/s Power Solutions</mat-option>
+                            <mat-option>R/s Power Solutions</mat-option>
+                            <mat-option> P/s Equipments</mat-option>
+                            <mat-option> LK Solutions</mat-option>
+                            <mat-option>SP Equipments</mat-option>
+                          </mat-select>
+                         
+                          
+                         
+                         
+                          
+                      
+                    </td>
+                    <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                    
+                    <td style="width: 200px !important;">
+                      <mat-select class="form-control" placeholder = "">
+                        <mat-option>Days</mat-option>
+                        <mat-option>Nos</mat-option>
+                        
+                      </mat-select>
+                  
+                </td>
+                    
+                    <td style="text-align: center!important;">
+                      <input type="number" class="form-control">
+                    </td>
+                    <td style="text-align: center!important;">
+                      <input type="number" class="form-control">
+                    </td>
+                   
+    </tr>
+   
+  </tbody>
+  </table>
+ 
+  </div>
+  </div>
+  </div>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-raised-button class="btn-primary" ><span >Save</span></button>
+  
+</mat-dialog-actions>
+
+
+<div fxLayout="row wrap" #resizedDiv style="margin-top: 30px;">
+  <div class="flex-p w-100">
+      
+
+<div class="row">
+
+<div class="col-xs-12">
+    <div id="grid-table-container" class="table-responsive">
+        <table matSort id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr>
+                    <th >Date</th>
+                    <th class="text-center">Vendor</th>
+                    <th class="text-center">Unit</th>
+                    <th class="text-center">Quote</th>
+                    
+                    <th class="text-center">Min Value</th>
+                    <th class="text-center">Accepted</th>
+                    <th class="text-center">PO Reference</th>
+                   
+                    <th class="text-center" style="width: 112px!important;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items1">
+                    <td  style="min-width: 70px !important;"><a>
+                     {{item.Date}}   
+                    </a>
+                </td>
+                <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                <td style="text-align: center!important;">{{item.Vendor}} </td>
+                <td style="text-align: center!important;">{{item.Unit}} </td>
+                <td style="text-align: center!important;">{{item.Quote}} </td>
+                <td style="text-align: center!important;">{{item.MinQty}} </td>                  
+                <!--<td style="text-align: center!important;"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>-->
+                <td style="text-align: center!important;">{{item.Accepted}} </td>
+                <td style="text-align: center!important;">{{item.PO}} </td>
+                
+                
+       
+    <td  class="text-center">
+        <a style="cursor: pointer;margin-right:10px; " >
+            <i class="fa fa-edit" style="color: cornflowerblue"></i>
+        </a>
+        <a ><i class="fa fa-trash red"   style="cursor: pointer;"></i></a>
+    </td> 
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  </div>
+</div>
+<mat-dialog-actions align="end">
+  
+  <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,127 @@
+<div fxLayout="column">
+    <div class="flex-p">
+        <div class="row" style="margin-top:15px;">
+            <div class="col-lg-4"> 
+                
+                <mat-card-header fxLayoutAlign="center center">                
+                    <mat-card-subtitle><h2>Task Completion</h2></mat-card-subtitle>
+                </mat-card-header>
+                <div class="w-100 h-300p">
+                    <ngx-charts-pie-chart
+                    [scheme]="colorScheme"
+                    [results]="single"
+                    [legend]="showLegend"
+                    [explodeSlices]="explodeSlices"
+                    [labels]="showLabels"
+                    [doughnut]="doughnut"
+                    [gradient]="gradient"
+                    (select)="onSelect($event)">
+                </ngx-charts-pie-chart>                  
+            </div>
+            
+        </div>
+        
+        <div class="col-lg-4"> 
+            
+            <mat-card-header fxLayoutAlign="center center">                
+                <mat-card-subtitle><h2>Project Stage</h2></mat-card-subtitle>
+            </mat-card-header>
+            <div class="w-100 h-300p">
+                <ngx-charts-pie-chart
+                [scheme]="colorScheme"
+                [results]="triple"
+                [legend]="showLegend"
+                [explodeSlices]="explodeSlices"
+                [labels]="showLabels"
+                [doughnut]="doughnut"
+                [gradient]="gradient"
+                (select)="onSelect($event)">
+            </ngx-charts-pie-chart>                  
+        </div>
+        
+    </div>
+    <div class="col-lg-4"> 
+        
+        <mat-card-header fxLayoutAlign="center center">                
+            <mat-card-subtitle><h2>Category</h2></mat-card-subtitle>
+        </mat-card-header>
+        <div class="w-100 h-300p">
+            <ngx-charts-pie-chart
+            [scheme]="colorScheme"
+            [results]="multiTriple"
+            [legend]="showLegend"
+            [explodeSlices]="explodeSlices"
+            [labels]="showLabels"
+            [doughnut]="doughnut"
+            [gradient]="gradient"
+            (select)="onSelect($event)">
+        </ngx-charts-pie-chart>                  
+    </div>
+    
+</div>
+</div>
+<mat-card>
+    <mat-card-header fxLayoutAlign="center center">                
+        <mat-card-subtitle><h2>Tasks per Day</h2></mat-card-subtitle>
+    </mat-card-header>
+    <div class="w-100 h-300p">
+        <ngx-charts-line-chart
+        [scheme]="colorScheme"
+        [results]="multi"
+        [gradient]="gradient2"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend2"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [autoScale]="autoScale"
+        (select)="onSelect($event)">
+    </ngx-charts-line-chart>                  
+</div>
+</mat-card>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="divQuotesGrid" class="table-responsive">
+            <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr>
+                        <th>Project Stage</th>
+                        <th class="text-center">Tasks Completed</th>
+                        <th class="text-center">Tasks in Process</th>
+                        <th class="text-center">Tasks Delayed</th>
+                        <th class="text-center">Not Started</th>
+                        <th class="text-center">Exceptions</th>
+                        <th class="text-center">Tasks Status</th>
+                        <th class="text-center">% Completion</th>
+                        <th class="text-center">Target Date</th>
+                        <th class="text-center">Expected Completion Date</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of totalProjects">
+                        <td>{{item.projectStage}}</td>
+                        <td style="text-align: center!important;">{{item.tasksCompleted}}</td>
+                        <td style="text-align: center!important;">{{item.inProcess}}</td>
+                        <td style="text-align: center!important;">{{item.delayed}}</td>
+                        <td style="text-align: center!important;">{{item.notStarted}}</td>
+                        <td style="text-align: center!important;">{{item.exceptions}}</td>
+                        <td style="text-align: center!important;">{{item.taskStatus}}</td>
+                        <td style="text-align: center!important;">{{item.completion}}</td>
+                        <td style="text-align: center!important;">{{item.target}}</td>
+                        <td style="text-align: center!important;">{{item.expected}}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+            [pageSizeOptions]="[5, 10, 25, 50, 100]" 
+            showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+
+
+<div class="row" style="margin-bottom:7px;">
+  <div class="col-xs-6 ">
+  </div>
+  <div class="col-xs-6 ">
+      <div class="flex-p">
+       
+        <button mat-raised-button class="pull-right  btn-primary" style="margin-left:10px;" (click)="addlabour()">
+          <mat-icon>add</mat-icon> Add Labour Budget
+      </button> 
+      <button mat-raised-button class="pull-right  btn-primary" (click)="addmaterial()">
+        <mat-icon>add</mat-icon> Add Material Budget
+    </button>           
+  </div>
+  
+</div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th >Serial</th>
+                      <th class="text-center">Category</th>
+                      
+                      <th class="text-center">Item</th>
+                      <th class="text-center">Unit</th>
+                      <th class="text-center">Quantity</th>
+                      <th class="text-center">Material</th>
+                      <th class="text-center">Labour</th>
+                      <th class="text-center" style="width:110px;">Budget</th>
+                     
+                    
+                      <th class="text-center" style="width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of items">
+                      <td style="min-width: 70px !important;">
+                          {{item.serial}}
+                    
+                  </td>
+                  <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                  
+                  <td style="text-align: center!important;">{{item.category }}</td>
+                  <td style="text-align: center!important;">{{item.item }}</td>
+                  <td style="text-align: center!important;">{{item.unit }}</td>
+                  <td style="text-align: center!important;">{{item.quantity }}</td>
+                  <td style="text-align: center!important;"><a style="color: blue;cursor: pointer;" (click)="openmaterial()">{{item.materials }}</a> </td>
+                  <td style="text-align: center!important;">
+                    <a style="color: blue;cursor: pointer;" (click)="openlabour()">{{item.labour }}</a>
+                  </td>
+                  <td style="text-align: center!important;">{{item.budget }}</td>
+                
+                  
+      <td  class="text-center">
+       
+      <a style="cursor: pointer;margin-right:10px; " matTooltip="Add File" (click)="addfile()">
+        <i class="fa fa-plus" style="color: cornflowerblue"></i>
+    </a>
+          <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Item" (click)="openProjectDialog(item)">
+              <i class="fa fa-edit" style="color: cornflowerblue"></i>
+          </a>
+          <a ><i class="fa fa-trash red" matTooltip="Delete Item"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+      </td> 
+  </tr>
+ 
+</tbody>
+</table>
+<mat-paginator
+[pageSizeOptions]="[5, 10, 25, 50, 100]"
+showFirstLastButtons></mat-paginator>
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+  </div>
+</div>

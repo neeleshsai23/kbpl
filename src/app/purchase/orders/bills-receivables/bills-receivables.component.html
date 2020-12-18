@@ -1,0 +1,334 @@
+<div fxLayout="row wrap" >
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+      <mat-card class="filter">
+          <mat-card-content>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="col-sm-4 newMarginClass">
+                      PO Ref# : 
+                  </div>
+                  <div class="col-sm-8">
+                    <mat-select class="form-control" placeholder="PO Ref#">
+                     <mat-option>WO/MRC/157</mat-option>
+                     <mat-option>WO/MRC/171</mat-option>
+                     <mat-option>WO/MRC/168</mat-option>
+                    </mat-select>
+                  </div>
+              </div>
+             
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Vendor: 
+                      </div>
+                      <div class="col-sm-8">
+                        <mat-select class="form-control" placeholder="Select Vendor">
+                         <mat-option> M/s Power Solutions</mat-option>
+                         <mat-option> R/s Power Solutions</mat-option>
+                         <mat-option>P/s Equipments</mat-option>
+                        </mat-select>
+                      </div>
+                      
+                  </div>
+                  
+                  <div class="col-sm-1" style="margin-top: -3px;">
+                      <button mat-raised-button  class=" btn-primary"> Search</button>
+                  </div>
+                  <div class="col-sm-1" style="margin-top: -3px;">
+                      <button mat-raised-button style="background-color:#37474f; color:#fff !important" > Clear</button>
+                 
+                  </div>
+              </div>
+              
+                  
+                 
+                  
+              
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+<mat-card style="padding: 0%;margin-top: 30px;">
+  <div class="row" style="height: 60px;background-color: antiquewhite;text-align: center;">
+    <div class="col-lg-4">
+      <h3 >R/s Power Solutions</h3>
+      <span>Vendor</span>
+    </div>
+    <div class="col-lg-1">
+      <h3>13</h3>
+      <span>No.of POS</span>
+    </div>
+    <div class="col-lg-1">
+      <h3>42</h3>
+      <span>Qty</span>
+    </div>
+    
+    <div class="col-lg-2">
+      <h3>28,23,000</h3>
+      <span>PO Total Value</span>
+    </div>
+    <div class="col-lg-2">
+      <h3>22,23,000</h3>
+      <span>PO Balance Value</span>
+    </div>
+    <div class="col-lg-2">
+      <h3>5</h3>
+      <span>Consignments in Process</span>
+    </div>
+  </div>
+  <div class="row" style="min-height: 30px;background-color: burlywood;">
+<a style="margin-left: 90%;margin-top: 6px;color: blue;cursor: pointer;" (click)="filterToggle = !filterToggle">
+  Details
+</a>
+
+</div>
+<div fxLayout="row wrap" *ngIf="filterToggle">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+    <div class="row filter" >
+      <div class="col-xs-12">
+          <div id="grid-table-container" class="table-responsive">
+            <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                <tr>
+                  <th >Address</th>
+                  <th class="text-center">Consignments</th>
+                  <th class="text-center">PO Ref</th>
+                  <th class="text-center">PO Category</th>
+                  
+                  <th class="text-center">PO Date</th>
+                  <th class="text-center">PO Value</th>
+                  <th class="text-center">PO Balance</th>
+                 
+                  <th class="text-center">Approvals</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor = "let item of items;let i=index">
+                  <td  style="min-width: 70px !important;" *ngIf = "i==0" [attr.rowspan]="items.length-2"><a>
+                   {{item.PO}}   
+                  </a>
+              </td>
+              <td  style="min-width: 70px !important;" *ngIf = "i==5" [attr.rowspan]="items.length-5"><a>
+                {{item.PO}}   
+               </a>
+           </td>
+           <td  class="text-center" style="min-width: 70px !important;" *ngIf = "i==0" [attr.rowspan]="items.length-2"><a>
+            {{item.C}}   
+           </a>
+       </td>
+       <td class="text-center" style="min-width: 70px !important;" *ngIf = "i==5" [attr.rowspan]="items.length-5"><a>
+         {{item.C}}   
+        </a>
+    </td> 
+              <td style="text-align: center!important;">{{item.Ref}}</td> 
+              <td style="text-align: center!important;">{{item.Sub}} </td>
+              <td style="text-align: center!important;">{{item.POC}} </td>
+          
+              <td style="text-align: center!important;">{{item.POD}} </td>                  
+              <!--<td style="text-align: center!important;"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>-->
+              <td style="text-align: center!important;">{{item.POV}} </td>
+              
+              <td style="text-align: center!important;"><a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" style="color: blue;cursor: pointer;">{{item.POB}}</a></td>
+              
+</tr>
+</tbody>
+</table>
+    <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+      showFirstLastButtons></mat-paginator> -->
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+</mat-card>
+
+
+<mat-card style="padding: 0%;margin-top: 30px;">
+  <div class="row" style="height: 60px;background-color: antiquewhite;text-align: center;">
+    <div class="col-lg-4">
+      <h3 >M/s Power Solutions</h3>
+      <span>Vendor</span>
+    </div>
+    <div class="col-lg-1">
+      <h3>12</h3>
+      <span>No.of POS</span>
+    </div>
+    <div class="col-lg-1">
+      <h3>30</h3>
+      <span>Qty</span>
+    </div>
+    
+    <div class="col-lg-2">
+      <h3>94,76,000</h3>
+      <span>PO Total Value</span>
+    </div>
+    <div class="col-lg-2">
+      <h3>57,82,000</h3>
+      <span>PO Balance Value</span>
+    </div>
+    <div class="col-lg-2">
+      <h3>7</h3>
+      <span>Consignments in Process</span>
+    </div>
+  </div>
+  <div class="row" style="min-height: 30px;background-color: burlywood;">
+<a style="margin-left: 90%;margin-top: 6px;color: blue;cursor: pointer;" (click)="filterToggle1 = !filterToggle1">
+  Details
+</a>
+
+</div>
+<div fxLayout="row wrap" *ngIf="filterToggle1">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+    <div class="row filter" >
+      <div class="col-xs-12">
+          <div id="grid-table-container" class="table-responsive">
+            <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                <tr>
+                  <th >Address</th>
+                  <th class="text-center">Consignments</th>
+                  <th class="text-center">PO Ref</th>
+                  <th class="text-center">PO Category</th>
+                  
+                  <th class="text-center">PO Date</th>
+                  <th class="text-center">PO Value</th>
+                  <th class="text-center">PO Balance</th>
+                 
+                  <th class="text-center">Approvals</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor = "let item of items;let i=index">
+                  <td  style="min-width: 70px !important;" *ngIf = "i==0" [attr.rowspan]="items.length-2"><a>
+                   {{item.PO}}   
+                  </a>
+              </td>
+              <td  style="min-width: 70px !important;" *ngIf = "i==5" [attr.rowspan]="items.length-5"><a>
+                {{item.PO}}   
+               </a>
+           </td>
+           <td  class="text-center" style="min-width: 70px !important;" *ngIf = "i==0" [attr.rowspan]="items.length-2"><a>
+            {{item.C}}   
+           </a>
+       </td>
+       <td class="text-center" style="min-width: 70px !important;" *ngIf = "i==5" [attr.rowspan]="items.length-5"><a>
+         {{item.C}}   
+        </a>
+    </td> 
+              <td style="text-align: center!important;">{{item.Ref}}</td> 
+              <td style="text-align: center!important;">{{item.Sub}} </td>
+              <td style="text-align: center!important;">{{item.POC}} </td>
+          
+              <td style="text-align: center!important;">{{item.POD}} </td>                  
+              <!--<td style="text-align: center!important;"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>-->
+              <td style="text-align: center!important;">{{item.POV}} </td>
+              
+              <td style="text-align: center!important;"><a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" style="color: blue;cursor: pointer;">{{item.POB}}</a></td>
+              
+</tr>
+</tbody>
+</table>
+    <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+      showFirstLastButtons></mat-paginator> -->
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+</mat-card>
+
+<mat-card style="padding: 0%;margin-top: 30px;">
+  <div class="row" style="height: 60px;background-color: antiquewhite;text-align: center;">
+    <div class="col-lg-4">
+      <h3 >P/s Equipments</h3>
+      <span>Vendor</span>
+    </div>
+    <div class="col-lg-1">
+      <h3>17</h3>
+      <span>No.of POS</span>
+    </div>
+    <div class="col-lg-1">
+      <h3>55</h3>
+      <span>Qty</span>
+    </div>
+    
+    <div class="col-lg-2">
+      <h3>11,96,000</h3>
+      <span>PO Total Value</span>
+    </div>
+    <div class="col-lg-2">
+      <h3>79,32,000</h3>
+      <span>PO Balance Value</span>
+    </div>
+    <div class="col-lg-2">
+      <h3>8</h3>
+      <span>Consignments in Process</span>
+    </div>
+  </div>
+  <div class="row" style="min-height: 30px;background-color: burlywood;">
+<a style="margin-left: 90%;margin-top: 6px;color: blue;cursor: pointer;" (click)="filterToggle2 = !filterToggle2">
+  Details
+</a>
+
+</div>
+<div fxLayout="row wrap" *ngIf="filterToggle2">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+    <div class="row filter" >
+      <div class="col-xs-12">
+          <div id="grid-table-container" class="table-responsive">
+              <table matSort id="example2" class="table table-bordered table-hover">
+                  <thead class="tbl-head">
+                    <tr>
+                      <th >Address</th>
+                      <th class="text-center">Consignments</th>
+                      <th class="text-center">PO Ref</th>
+                      <th class="text-center">PO Category</th>
+                      
+                      <th class="text-center">PO Date</th>
+                      <th class="text-center">PO Value</th>
+                      <th class="text-center">PO Balance</th>
+                     
+                      <th class="text-center">Approvals</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor = "let item of items;let i=index">
+                      <td  style="min-width: 70px !important;" *ngIf = "i==0" [attr.rowspan]="items.length-2"><a>
+                       {{item.PO}}   
+                      </a>
+                  </td>
+                  <td  style="min-width: 70px !important;" *ngIf = "i==5" [attr.rowspan]="items.length-5"><a>
+                    {{item.PO}}   
+                   </a>
+               </td>
+               <td  class="text-center" style="min-width: 70px !important;" *ngIf = "i==0" [attr.rowspan]="items.length-2"><a>
+                {{item.C}}   
+               </a>
+           </td>
+           <td class="text-center" style="min-width: 70px !important;" *ngIf = "i==5" [attr.rowspan]="items.length-5"><a>
+             {{item.C}}   
+            </a>
+        </td> 
+                  <td style="text-align: center!important;">{{item.Ref}}</td> 
+                  <td style="text-align: center!important;">{{item.Sub}} </td>
+                  <td style="text-align: center!important;">{{item.POC}} </td>
+              
+                  <td style="text-align: center!important;">{{item.POD}} </td>                  
+                  <!--<td style="text-align: center!important;"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>-->
+                  <td style="text-align: center!important;">{{item.POV}} </td>
+                  
+                  <td style="text-align: center!important;"><a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" style="color: blue;cursor: pointer;">{{item.POB}}</a></td>
+                  
+    </tr>
+    </tbody>
+    </table>
+    <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+      showFirstLastButtons></mat-paginator> -->
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+</mat-card>

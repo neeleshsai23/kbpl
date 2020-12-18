@@ -1,0 +1,69 @@
+
+ <div class="NewHeader">
+  <h1 mat-dialog-title>Items</h1>
+</div>
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+
+   
+
+<div class="row" style="margin-bottom:7px;">
+  <div class="col-xs-6 ">
+  </div>
+  
+</div>       
+
+
+
+<div class="row">
+
+<div class="col-xs-12">
+    <div id="grid-table-container" class="table-responsive">
+        <table matSort id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr>
+                    
+                    <th class="text-center">Item Category </th>
+                    <th class="text-center">Item</th>
+                    <th class="text-center">Due Date</th>
+                    
+                    <th class="text-center">Qty Available</th>
+                    <th class="text-center">Req Available</th>
+                    
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items">
+                  <td style="min-width: 70px !important;">
+                    {{item.selectitemcat}}
+              
+            </td>
+            <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+            
+            <td style="text-align: center!important;">{{item.selectitem}}</td>
+            <td style="text-align: center!important;">{{item.due}}</td>
+            <td style="text-align: center!important;">{{item.qtyavailable}}</td>
+            <td style="text-align: center!important;">{{item.requiredqty }}</td>
+                
+</tr>
+
+</tbody>
+</table>
+
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+[pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>
+  </div>
+</div>
+<mat-dialog-actions align="end">
+  <!--<button mat-raised-button class="btn-primary" (click)="saveStep()" [mat-dialog-close]="'test'">Save</button>-->
+    <button mat-raised-button class="CancelClass" (click)="close()">Close</button>
+  </mat-dialog-actions> 
+
+
+

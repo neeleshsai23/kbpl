@@ -1,0 +1,66 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Add Machinary
+  </h1>
+</div>
+<div mat-dialog-content>
+  <form class="form-horizontal">
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Name: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" class="form-control" placeholder="Enter Name" required>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Description: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <input type="text" class="form-control" placeholder="Enter Description" required>
+
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Unit: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <mat-select class="form-control" placeholder = "Select Unit">
+              <mat-option>Qtls</mat-option>
+              <mat-option>Kg</mat-option>
+              <mat-option>Pcs</mat-option>
+            </mat-select>
+           
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Quantity: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" class="form-control" placeholder="Enter Quantity" required>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Model : </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <mat-select class="form-control" placeholder = "Select Model">
+            <mat-option>A5D5T</mat-option>
+            <mat-option>H7T4</mat-option>
+            <mat-option>Z355T</mat-option>
+          </mat-select>
+        </div>
+    </div>
+
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Make : </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <mat-select class="form-control" placeholder = "Select Make" >
+              <mat-option>L&T Construction Equipment</mat-option>
+              <mat-option>Acc Cement</mat-option>
+              <mat-option>Reliance Steels</mat-option>
+            </mat-select>
+          </div>
+      </div>
+   
+  </form>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-raised-button class="btn-primary" ><span >Save</span></button>
+  <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+</mat-dialog-actions>

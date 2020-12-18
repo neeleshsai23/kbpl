@@ -1,0 +1,151 @@
+<div class="row" style="margin-bottom:7px;">
+  <div class="col-xs-6 ">
+  </div>
+  <div class="col-xs-6 ">
+      <div class="flex-p">
+          <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10"
+          (click)="filterToggle = !filterToggle">
+          <mat-icon>filter_list</mat-icon> Filter
+      </button>
+      
+  </div>
+  
+</div>
+</div>
+
+<div fxLayout="row wrap" *ngIf="filterToggle">
+<div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+  <mat-card class="filter">
+      <mat-card-content>
+          <div class="row">
+              <div class="col-sm-4">
+                  <div class="col-sm-4 newMarginClass">
+                      Vehicle No: 
+                  </div>
+                  <div class="col-sm-8">
+                      <input type="text" placeholder="Search by Vehicle No" class="form-control" >
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                  <div class="col-sm-4 newMarginClass">
+                      Equipment Name: 
+                  </div>
+                  <div class="col-sm-8">
+                    <mat-select class="form-control" placeholder="Search by Equipemt">
+                      <mat-option [value]="0">Bull Dozer</mat-option>
+                      <mat-option [value]="1">Semi Truck</mat-option>
+                    </mat-select>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                  <div class="col-sm-4 newMarginClass">
+                      Project: 
+                  </div>
+                  <div class="col-sm-8">
+                      <input type="text" placeholder="Search by Project" class="form-control">
+                  </div>
+              </div>
+          </div>
+
+          <div class="row"  style="padding-top:10px !important">
+            <div class="col-sm-4">
+                <div class="col-sm-4 newMarginClass">
+                    GPS Tracker Name: 
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" placeholder="Search by GPS Tracker Name" class="form-control" >
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-4 newMarginClass">
+                    Location: 
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" placeholder="Search by Location" class="form-control" >
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-4 newMarginClass">
+                    Username: 
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" placeholder="Search by Username" class="form-control">
+                </div>
+            </div>
+        </div>
+          
+          <div class="row" style="padding-top:10px !important">
+              <div class="col-sm-4">
+                  
+              </div>
+              
+              <div class="col-sm-4">
+
+              </div>
+
+              <div class="col-lg-1" style="margin-left:195px!important;">
+                <button mat-raised-button  class="pull-right btn-primary"><mat-icon>youtube_searched_for</mat-icon> Search</button>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                  <button mat-raised-button style="background-color:#37474f; color:#fff !important" ><mat-icon>settings_backup_restore</mat-icon> Clear</button>
+              </div>
+              <a (click)="filterToggle = !filterToggle" class="pull-right" style="font-size: 25px; cursor: pointer; margin-left: 5px;">
+                  <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+              </a>
+              
+          </div>
+          
+      </mat-card-content>
+  </mat-card>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th class="text-center">Vehicle No</th>
+                      <th class="text-center">Equipment Name</th>
+                     <th class="text-center">Allocated User</th>
+                     <th class="text-center">GPS Tracker Name</th>
+                     <th class="text-center">Current Location</th>
+                     <th class="text-center">Previous Location</th>
+                     <th class="text-center">Track</th>
+                     <th class="text-center">GPS History</th>
+                      <!-- <th class="text-center">Percent Completion</th> -->
+                      <!-- <th class="text-center">Invoiced</th> -->
+                      <!-- <th class="text-center">Status</th> -->
+                      <th class="text-center" style="width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of values">
+                    <td class="text-center">{{item.vehicleno}}</td>
+                    <td class="text-center">{{item.equipment}}</td>
+                    <td class="text-center">{{item.allocateduser}}</td>
+                    <td class="text-center">{{item.gpsname}}</td>
+                    <td class="text-center">{{item.current}}</td>
+                    <td class="text-center">{{item.previous}}</td>
+                    <td class="text-center"><mat-icon>location_on</mat-icon></td>
+                    <td class="text-center"><a style="color: blue;" (click)="openGPSHistoryDialog()">View</a></td>
+                    <td  class="text-center">
+                        <a style="cursor: pointer;margin-right:10px; " matTooltip="Update" >
+                            <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                        </a>
+                        <a ><i class="fa fa-trash red" matTooltip="Delete Project"  style="cursor: pointer;"></i></a>
+                    </td> 
+                </tr>
+                
+              </tbody>
+            </table>
+<mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+[pageSizeOptions]="[5, 10, 25, 50, 100]"
+showFirstLastButtons></mat-paginator>
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>

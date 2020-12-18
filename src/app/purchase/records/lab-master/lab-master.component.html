@@ -1,0 +1,72 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+<div class="row" style="margin-bottom:7px;">
+  <div class="col-xs-6 ">
+  </div>
+  <div class="col-xs-6 ">
+      <div class="flex-p">
+          <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" (click)="openAdd()" >
+              <mat-icon>add</mat-icon> Add Lab
+          </button>
+  </div>
+</div>
+</div>       
+
+<div class="row">
+
+<div class="col-xs-12">
+    <div id="grid-table-container" class="table-responsive">
+        <table matSort id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr>
+                    <th >Lab Name</th>
+                    <th class="text-center">Lab Code</th>
+                    <th class="text-center">Contact Person</th>
+                    <th class="text-center">Email</th>
+                    
+                    <th class="text-center">Phone</th>
+                    <th class="text-center">Address</th>
+                    <th class="text-center">City</th>
+                    <th class="text-center">State</th>
+                    <th class="text-center">GSTIN</th>
+                    <th class="text-center" style="width: 112px!important;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items">
+                    <td  style="min-width: 70px !important;"><a>
+                     {{item.Sc_Name}}   
+                    </a>
+                </td>
+                <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                <td style="text-align: center!important;">{{item.Sc_Code}} </td>
+                <td style="text-align: center!important;">{{item.Contact_Person}} </td>
+                <td style="text-align: center!important;">{{item.Email}} </td>
+                <td style="text-align: center!important;">{{item.Phone}} </td>                  
+                <!--<td style="text-align: center!important;"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>-->
+                <td style="text-align: center!important;">{{item.Address}} </td>
+                <td style="text-align: center!important;">{{item.City}} </td>
+                <td style="text-align: center!important;">{{item.State}} </td>
+                <td style="text-align: center!important;">{{item.GSTIN}} </td>
+       
+    <td  class="text-center">
+        <a style="cursor: pointer;margin-right:10px; " >
+            <i class="fa fa-edit" style="color: cornflowerblue"></i>
+        </a>
+        <a ><i class="fa fa-trash red"   style="cursor: pointer;"></i></a>
+    </td> 
+</tr>
+
+</tbody>
+</table>
+<mat-paginator 
+[pageSizeOptions]="[9, 10, 25, 50, 100]"
+showFirstLastButtons></mat-paginator>
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+[pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>
+  </div>
+</div>

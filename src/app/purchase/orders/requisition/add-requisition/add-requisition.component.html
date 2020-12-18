@@ -1,0 +1,131 @@
+
+  <h2 style="margin-left: 17px;margin-top:25px ;">Add New Requisition</h2>
+  <span style="margin-left:17px">Please provide the following details.</span><br>
+<form class="form-horizontal" style="width: 600px;margin-top: 30px;margin-left: 20px;">
+  
+  <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Reference</label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <input type="text" class="form-control" placeholder="Enter Reference">
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Request Date: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="date" class="form-control" placeholder="Enter Sub-Contractor Code">
+
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Due Date </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="date" class="form-control" placeholder="Enter Contact Person" required>
+       
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">BOQ Categories: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+         <mat-select  class="form-control" placeholder="Select BOQ Category" [multiple]="true" >
+           <mat-option>Electrical</mat-option>
+           <mat-option>Mechanical</mat-option>
+           <mat-option>Earth Work</mat-option>
+         </mat-select>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Item Categories: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select  class="form-control" placeholder="Select item Category" [multiple]="true" >
+          <mat-option>Electrical</mat-option>
+          <mat-option>Mechanical</mat-option>
+          <mat-option>Earth Work</mat-option>
+        </mat-select>
+      </div>
+  </div>
+ 
+
+
+
+
+</form>
+
+
+
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+<div class="row" style="margin-bottom:7px;">
+  <div class="col-xs-6 ">
+  </div>
+  <div class="col-xs-6 ">
+      <div class="flex-p">
+         
+          <button mat-raised-button  class="pull-right  btn-primary filters-hover margin-right-10" (click)="additem()"
+          >
+          <mat-icon>add</mat-icon>Add Item
+      </button>
+      
+  </div>
+  
+</div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th >Item Category</th>
+                      <th class="text-center">Item</th>
+                      
+                      <th class="text-center">Due Date</th>
+                      <th class="text-center">Qty Available</th>
+                      <th class="text-center">Requiered Qty</th>
+                    
+                    
+                      <th class="text-center" style="width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of items">
+                      <td style="min-width: 70px !important;">
+                          {{item.selectitemcat}}
+                    
+                  </td>
+                  <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                  
+                  <td style="text-align: center!important;">{{item.selectitem}}</td>
+                  <td style="text-align: center!important;">{{item.due}}</td>
+                  <td style="text-align: center!important;">{{item.qtyavailable}}</td>
+                  <td style="text-align: center!important;">{{item.requiredqty }}</td>
+                 
+                
+             
+         
+                  
+      <td  class="text-center">
+          <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Item">
+              <i class="fa fa-edit" style="color: cornflowerblue"></i>
+          </a>
+        
+          <a ><i class="fa fa-trash red" matTooltip="Delete Item"  style="cursor: pointer;"></i></a>
+      </td> 
+  </tr>
+ 
+</tbody>
+</table>
+
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>
+
+  </div>
+</div>

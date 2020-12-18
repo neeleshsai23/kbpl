@@ -1,0 +1,63 @@
+
+
+<div class="row" style="margin-top: 20px;">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                    <th class="text-center">Action</th>
+                      <th class="text-center">Vehicle No</th>
+                      <th class="text-center">Equipment Name</th>
+                      <th class="text-center">Project</th>
+                      <th class="text-center">Project #</th>
+                      <th class="text-center">Client</th>
+                      <th class="text-center">Driver Name</th>
+                      <th class="text-center">License No</th>
+                      <th class="text-center">License Validity</th>
+                      <th class="text-center">Allocation Done by</th>
+                      <th class="text-center">Allocation DT</th>
+                      <th class="text-center">Traffic Violations</th>
+                      <th class="text-center">Violation History</th>
+                      <th class="text-center">Service Records</th>
+                      <!-- <th class="text-center">Percent Completion</th> -->
+                      <!-- <th class="text-center">Invoiced</th> -->
+                      <!-- <th class="text-center">Status</th> -->
+                      <th class="text-center" style="width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of values">
+                    <td class="text-center"><a style="color: blue;text-decoration: underline;" (click)="openAllocateDialog()">Add</a></td>
+                    <td class="text-center">{{item.vehicleno}}</td>
+                    <td class="text-center">{{item.equipment}}</td>
+                    <td class="text-center">{{item.project}}</td>
+                    <td class="text-center">{{item.projectcode}}</td>
+                    <td class="text-center">{{item.client}}</td>
+                    <td class="text-center">{{item.drivername}}</td>
+                    <td class="text-center">{{item.licenseno}}</td>
+                    <td class="text-center">{{item.licensevalidity}}</td>
+                    <td class="text-center">{{item.allocationby}}</td>
+                    <td class="text-center">{{item.allocationdt}}</td>
+                    <td class="text-center"><a style="color: blue;" >-</a></td>
+                    <td class="text-center"><a style="color: blue;" >-</a></td>
+                    <td class="text-center"><a style="color: blue;">-</a></td>
+                    <td  class="text-center">
+                        <a style="cursor: pointer;margin-right:10px; " matTooltip="Update" >
+                            <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                        </a>
+                        <a ><i class="fa fa-trash red" matTooltip="Delete Project"  style="cursor: pointer;"></i></a>
+                    </td> 
+                </tr>
+                
+              </tbody>
+            </table>
+<mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+[pageSizeOptions]="[5, 10, 25, 50, 100]"
+showFirstLastButtons></mat-paginator>
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>

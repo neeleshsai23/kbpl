@@ -1,0 +1,52 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Record Traffic Violation Form
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th class="text-center">Category</th>
+                      <th class="text-center">Violated Location</th>
+                      <th class="text-center"  style="min-width: 100px;">Violated DT</th>
+                      <th class="text-center">Penalty No</th>
+                      <th class="text-center">Penalty Amount</th>
+                      <th class="text-center">Paid Amount</th>
+                      <th class="text-center">Payment Mode</th>
+                      <th class="text-center" style="min-width: 100px;">Paid DT</th>
+                      <th class="text-center">Reference No</th>
+                      <!-- <th class="text-center">Percent Completion</th> -->
+                      <!-- <th class="text-center">Invoiced</th> -->
+                      <!-- <th class="text-center">Status</th> -->
+                      <!-- <th class="text-center" style="width: 112px!important;">Actions</th> -->
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of values">
+                    <td class="text-center">{{item.category}}</td>
+                    <td class="text-center">{{item.location}}</td>
+                    <td class="text-center">{{item.dt}}</td>
+                    <td class="text-center">{{item.penaltyno}}</td>
+                    <td class="text-center">{{item.penaltyamount}}</td>
+
+                    <td class="text-center">{{item.paid}}</td>
+                    <td class="text-center">{{item.payment}}</td>
+                    <td class="text-center">{{item.paiddt}}</td>
+                    <td class="text-center">{{item.reference}}</td>
+                </tr>
+                
+              </tbody>
+            </table>
+</div>
+</div>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button class="btn-primary"> <span
+           >Save</span></button>
+  <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Close</button>
+</mat-dialog-actions> 

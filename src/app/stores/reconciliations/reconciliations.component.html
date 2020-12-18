@@ -1,0 +1,40 @@
+<div class="row-wrap">
+  <div class="w-100">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="pills">
+          <ul class="nav nav-pills" style="margin-top: 15px;">
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/reconciliations/boq-consumption']">
+                <mat-icon>grid_on</mat-icon> BOQ Consumption
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/reconciliations/dpr-consumption']">
+                <mat-icon>crop_square</mat-icon> DPR Consumption
+              </a>
+            </li>
+            <!-- <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/reconciliations/factors']">
+                <mat-icon>av_timer </mat-icon> Factors
+              </a>
+            </li> -->
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/reconciliations/site-balances']">
+                <mat-icon>device_hub</mat-icon> Site balance
+              </a>
+            </li>
+            <!-- <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/reconciliations/site-checks']">
+                <mat-icon>receipt</mat-icon> Site Checks
+              </a>
+            </li> -->
+           
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

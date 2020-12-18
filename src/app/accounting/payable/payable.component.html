@@ -1,0 +1,38 @@
+<div class="row-wrap">
+  <div class="w-100">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="pills">
+          <ul class="nav nav-pills" style="margin-top: 15px;">
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/payable/admin-expences']">
+                <mat-icon>grid_on</mat-icon> Admin Expences
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/payable/bank-payments-form']">
+                <mat-icon>crop_square</mat-icon> Bank Payments Form
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/payable/daybook-form']">
+                <mat-icon>receipt</mat-icon> Daybook Form
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/payable/fixed-assets']">
+                <mat-icon>receipt_long</mat-icon> Fixed Assets
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/payable/recurring-payments']">
+                <mat-icon>compare_arrows</mat-icon> Recurring Payments
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

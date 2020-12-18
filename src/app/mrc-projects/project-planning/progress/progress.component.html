@@ -1,0 +1,76 @@
+<div class="row" style="margin-top: 15px;">
+  <div fxFlex="100" fxFlex.gt-sm="50" class=" col-lg-6">
+      <div class="flex-p"> 
+        <mat-card>
+          <mat-card-header fxLayoutAlign="center center">                
+            <mat-card-subtitle><h2>Completion By Hours</h2></mat-card-subtitle>
+          </mat-card-header>
+          <div class="w-100 h-300p">
+            <ngx-charts-pie-chart
+            [scheme]="colorScheme"
+            [results]="single"
+            [legend]="showLegend"
+            [explodeSlices]="explodeSlices"
+            [labels]="showLabels"
+            [doughnut]="doughnut"
+            [gradient]="gradient"
+            >
+          </ngx-charts-pie-chart>                  
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="50" class="col-lg-6">
+    <div class="flex-p"> 
+      <mat-card>
+        <mat-card-header fxLayoutAlign="center center">                
+          <mat-card-subtitle><h2>Completion By Line Items</h2></mat-card-subtitle>
+        </mat-card-header>
+        <div class="w-100 h-300p">
+          <ngx-charts-pie-chart
+          [scheme]="colorScheme"
+          [results]="singles"
+          [legend]="showLegend"
+          [explodeSlices]="explodeSlices"
+          [labels]="showLabels"
+          [doughnut]="doughnut"
+          [gradient]="gradient"
+          >
+        </ngx-charts-pie-chart>                  
+      </div>
+    </mat-card>
+  </div>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div style="margin-left: 2%;">
+        <div class="chart-header">
+          <p>Completion By Category</p>
+        </div>
+        <div style="display: block;">
+          <div style="height: 300px;" [chart]="tentureOfEmployees"></div>
+        </div>
+        <div align="center">
+          <p><span><i class="fa fa-stop" style="color: rgb(33, 101, 190);"></i> Category</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div style="margin-left: 2%;">
+        <div class="chart-header">
+          <p>Completion Trend</p>
+        </div>
+
+        <div style="display: block;">
+          <div style="height: 300px;" [chart]="EmployeesOnboardingChart"> </div>
+        </div>
+        <div align="center">
+          <p><span><i class="fa fa-stop" style="color: rgb(33, 101, 192);"></i>Complete trend with respect to years</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>

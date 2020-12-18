@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-sm-12 pull-right no-padding">
+    
+        
+      
+      <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" (click)="openMeasurementBook('Add')">
+           Upload MB
+      </button>
+      <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" >
+        Download Sample
+      </button>
+      
+    </div>
+    <div class="col-xs-12">
+        <div id="grid-table-container" class="table-responsive">
+            <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr>
+                        <th >S.No</th>
+                        <th >Category</th>
+                        <th >Item</th>
+                        <th >Description</th>
+                        <th >Unit</th>
+                        <th >Target Quantity</th>
+                        <th >Previous Quantity</th>
+                        <th >Current Quantity</th>
+                        <th >Rate</th>
+                        <th >Billed (In Lakhs)</th>
+                        <th >Paid (In Lakhs)</th>
+                        <th >Balance (In Lakhs)</th>
+                        <th >Current Bill (In Lakhs)</th>
+                        <th >Receivable (In Lakhs)</th>
+                        <th >Collection (In Lakhs)</th>
+                        <th >Notes</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">View</th>
+                        <th class="text-center">Payments</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let value of values">
+                    
+                        <td >{{value.serial }}</td>
+                        <td >{{value.category }}</td>
+                        <td >{{value.item }}</td>
+                        <td>{{value.description}}</td>
+                        <td>{{value.unit}}</td>
+                        <td>{{value.target}}</td>
+                        <td>{{value.previousq}}</td>
+                        <td>{{value.currentq}}</td>
+                        <td>{{value.rate}}</td>
+                        <td>{{value.billed}}</td>
+                        <td>{{value.paid}}</td>
+                        <td>{{value.balance}}</td>
+                        <td>{{value.current}}</td>
+                        <td>{{value.receivable}}</td>
+                        <td>{{value.collection}}</td>
+                        <td>{{value.notes}}</td>
+                        <td class="text-center" [ngStyle]="{'color': value.status=='Active'? 'rgb(72, 158, 19)' : 'red'}">{{value.status}}</td>
+                        <td class="text-center"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>
+                        <td class="text-center"><a style="cursor: pointer;color:blue" (click)="openAddPayment(item)">Add</a> </td>
+                        <td  class="text-center">
+                            <a style="cursor: pointer; " >
+                                <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                            </a>
+                            <a ><i class="fa fa-trash red"   style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+                        </td>
+                    </tr>
+   
+                </tbody>
+            </table>
+            <mat-paginator 
+                [pageSizeOptions]="[9, 10, 25, 50, 100]"
+                showFirstLastButtons>
+            </mat-paginator>
+                <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+                [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+                showFirstLastButtons></mat-paginator> -->
+        </div>
+    </div>
+</div>

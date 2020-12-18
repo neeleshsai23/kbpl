@@ -1,0 +1,72 @@
+<!--This page is used to manage locations-->
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <div class="row" style="margin-bottom:5px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <input type="text" class="form-control" placeholder="Search by Country" >
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <button mat-raised-button class="pull-right btn-success" (click)="openCountryDialog('Add Country')">
+                        <mat-icon>person_add</mat-icon> Add Country
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-responsive topmargin">
+            <table id="example2" class="table table-bordered table-hover table-striped">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <!-- <th><input type="checkbox" name="select_all"/></th> -->
+                        <th>Country</th>
+                        <th>States</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr *ngFor="let country of countries">
+                        <!-- <td><input type="checkbox" name="select_single"></td> -->
+                        <td>{{country.country}}</td>
+                        <td>
+                            <div>
+                                <a routerLink="countries/ 10">{{country.number}}</a>
+                            </div>
+                        </td>
+                        <td>
+                            <a 
+                            class="status"
+                            mwlConfirmationPopover
+                            [popoverTitle]="popoverStatusTitle"
+                            [popoverMessage]="popoverStatusMessage"
+                            placement="left"
+                            (confirm)="saveStatus();country.status=!country.status"
+                            (cancel)="cancelClicked = true">
+                            {{country.status?'Active':'Inactive'}}
+                        </a>
+                    </td>
+                    <td>
+                        <a title="Edit Country" style="margin-right: 10px; cursor: pointer;" (click)="openCountryDialog('Update Country')">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a mwlConfirmationPopover
+                        [popoverTitle]="popoverTitle"
+                        [popoverMessage]="popoverMessage"
+                        placement="left"
+                        (confirm)="deleteCountry()"
+                        (cancel)="cancelClicked = true">
+                        <i style="cursor: pointer;" title="Delete Country" class="fa fa-trash red"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>

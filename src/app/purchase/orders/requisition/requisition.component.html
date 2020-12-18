@@ -1,0 +1,87 @@
+
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+<div class="row" style="margin-bottom:7px;">
+  <div class="col-xs-6 ">
+  </div>
+  <div class="col-xs-6 ">
+      <div class="flex-p">
+         
+          <a mat-raised-button  class="pull-right  btn-primary filters-hover margin-right-10"  target='_blank' [routerLink]="['/mrc/purchase/orders/requisitions/add-requisition']" 
+          >
+          
+          <mat-icon>add</mat-icon>Add Requisition 
+      </a>
+      
+  </div>
+  
+</div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th >Reference</th>
+                      <th class="text-center">Request Date</th>
+                      
+                      <th class="text-center">Due Date</th>
+                      <th class="text-center">BOQ Categories</th>
+                      <th class="text-center">Item Categories</th>
+                      <th class="text-center">Items</th>
+                      <th class="text-center">Approval Status</th>
+                      <th class="text-center">Delivery Status</th>
+                     
+                    
+                      <th class="text-center" style="width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of items">
+                      <td style="min-width: 70px !important;">
+                          {{item.ref}}
+                    
+                  </td>
+                  <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                  
+                  <td style="text-align: center!important;">{{item.req }}</td>
+                  <td style="text-align: center!important;">{{item.due}}</td>
+                  <td style="text-align: center!important;">{{item.boq }}</td>
+                  <td style="text-align: center!important;">{{item.itemcat }}</td>
+                  <td style="text-align: center!important;"><a style="color: blue;cursor: pointer;" (click)="openitem()">{{item.item }}</a></td>
+                  <td style="text-align: center!important;">{{item.approval }}</td>
+                  <td style="text-align: center!important;">
+                   {{item.delivery}}
+                  </td>
+                
+             
+         
+                  
+      <td  class="text-center">
+          <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Item">
+              <i class="fa fa-edit" style="color: cornflowerblue"></i>
+          </a>
+        
+          <a ><i class="fa fa-trash red" matTooltip="Delete Item"  style="cursor: pointer;"></i></a>
+      </td> 
+  </tr>
+ 
+</tbody>
+</table>
+<mat-paginator
+[pageSizeOptions]="[5, 10, 25, 50, 100]"
+showFirstLastButtons></mat-paginator>
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>
+
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div fxLayout="row wrap">
+  <div class="w-100">
+    <div fxLayout="row">
+      <div class="col-xs-12">
+        <div class="pills">
+          <ul class="nav nav-pills" style="margin-top: 15px;">
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/rentals/fuel-efficiency']">
+                <mat-icon>grid_on</mat-icon> Fuel Efficiency
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/rentals/productivity']">
+                <mat-icon>crop_square</mat-icon> Productivity
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/rentals/rental-maintenance']">
+                <mat-icon>place </mat-icon> Rent Maintenance
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/rentals/rent-calculations']">
+                <mat-icon>time_to_leave </mat-icon> Rent Calculations
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/rentals/returns']">
+                <mat-icon>today</mat-icon> Returns
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/stores/rentals/terms-wo']">
+                <mat-icon>device_hun </mat-icon> Terms WO
+              </a>
+            </li>
+           
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

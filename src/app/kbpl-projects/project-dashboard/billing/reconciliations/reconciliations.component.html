@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-sm-12 pull-right no-padding">
+    
+        
+      
+      <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" (click)="openPhysicalStock()">
+           Upload Physical Stock
+      </button>
+      <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" >
+        Download Sample
+      </button>
+      
+    </div>
+    <div class="col-xs-12">
+        <div id="grid-table-container" class="table-responsive">
+            <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr>
+                        <th >Date</th>
+                        <th >Uploaded By</th>
+                        <th >Counted By</th>
+                        <th class="text-center">Items</th>
+                        <th class="text-center">Quantity Variance</th>
+                        <th>Loss (In Lakhs)</th>
+                        <!-- <th class="text-center">Parameters</th>
+                        <th class="text-center">Positive</th>
+                        <th class="text-center">Results</th>
+                        <th class="text-center">Status</th> -->
+                        <th class="text-center">Actions</th>
+                        <th class="text-center">Adjust</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let value of values">
+                    
+                        <td >{{value.date }}</td>
+                        <td >{{value.uploaded }}</td>
+                        <td >{{value.counted }}</td>
+                        <td class="text-center"><a style="color: blue;cursor: pointer;text-decoration: underline;" (click)="openItems()">{{value.items}}</a></td>
+                        <td class="text-center"><a style="color: blue;cursor: pointer;text-decoration: underline;" (click)="openItems()">{{value.variance}}</a></td>
+                        <td *ngIf="0 > value.loss">({{value.loss}})</td>
+                        <td *ngIf="value.loss>0" style="color: red;">{{value.loss}}</td>
+                        <td  class="text-center">
+                            <a style="cursor: pointer; " >
+                                <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                            </a>
+                            <a ><i class="fa fa-trash red"   style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+                        </td>
+                        <td class="text-center"><a style="cursor:pointer" ><mat-icon>visibility</mat-icon></a></td>
+
+                    </tr>
+   
+                </tbody>
+            </table>
+            <mat-paginator 
+                [pageSizeOptions]="[9, 10, 25, 50, 100]"
+                showFirstLastButtons>
+            </mat-paginator>
+                <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+                [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+                showFirstLastButtons></mat-paginator> -->
+        </div>
+    </div>
+</div>

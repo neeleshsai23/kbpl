@@ -1,0 +1,167 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+
+      <div class="row" style="margin-bottom:14px;">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="w-100 flex-p">
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="w-100 flex-p">
+                  <button mat-raised-button class="pull-right btn-primary" (click)=" opencontactDialog()">
+                      <mat-icon>person_add</mat-icon> Add Applicant
+                  </button>
+                  <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                      <mat-icon>filter_list</mat-icon> Filter
+                  </button>
+              </div>
+          </div>
+      </div>
+      <div fxLayout="row wrap" *ngIf="filterToggle">
+        <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+            <mat-card class="filter">
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="col-sm-3 newMarginClass">
+                                Recruiter
+                            </div>
+                            <div class="col-sm-6">
+                              <form style="margin-top: -15px;">
+                          
+                                <mat-form-field >
+                                   <mat-select placeholder = "--Select Recruiter--" class="placeholder " 
+                                      name = "Client">
+                                      <mat-option >Robert</mat-option>
+                                      <mat-option>Henna</mat-option>
+                                      <mat-option>Emma</mat-option>
+                                      <mat-option>Juicewrld</mat-option>
+                                    
+               
+                                   </mat-select>
+                            
+                                </mat-form-field>
+                               
+                                   
+                                  
+                             
+                             </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="col-sm-4 newMarginClass">
+                                Job Code
+                            </div>
+                            <div class="col-sm-6">
+                              <input type="text" placeholder="Enter Job code" style="width: 200px; height:33px;  border: 1px solid black;text-align: center;border-radius: 5px;">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="col-sm-4 newMarginClass">
+                              Candidature
+                          </div>
+                          <div class="col-sm-6">
+                            <form style="margin-top: -15px;">
+                          
+                              <mat-form-field >
+                                 <mat-select placeholder = "-- Select Candidature --" class="placeholder "
+                                    name = "Client">
+                                    <mat-option>Selected</mat-option>
+                              <mat-option>Rejected</mat-option>
+                              <mat-option>In Process</mat-option>
+                                  
+             
+                                 </mat-select>
+                          
+                              </mat-form-field>
+                             
+                                 
+                                
+                           
+                           </form>
+                           
+                          </div>
+                      </div>
+                      <div style="position: relative;left: 75%;top: -35px;">
+                        <div class="col-lg-1 " style="margin-left:195px!important;">
+                          <button mat-raised-button (click)="fliterSearch()" class="pull-right btn-primary"><mat-icon>youtube_searched_for</mat-icon>Search</button>
+                      </div>
+                      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 " style="margin-left: -18px;">
+                          <button mat-raised-button style="background-color:#37474f; color:#fff !important" (click)="clearFilters()"><mat-icon>settings_backup_restore</mat-icon> Clear</button>
+                      </div>
+                      <a (click)="filterToggle = !filterToggle" class="pull-right" style="font-size: 25px; cursor: pointer; margin-left: 5px;">
+                          <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                      </a>
+                      </div>
+                        
+                  
+                    </div>
+                       
+                       
+                    
+                    
+                </mat-card-content>
+            </mat-card>
+        </div>
+      </div>
+
+      <div fxLayout="row wrap" >
+        <div class="table-responsive topmargin" style="width:100% !important;margin-top: 50px;">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th >APL No.</th>
+                        <th >Name</th>
+                        <th  class="text-center" style="min-width: 100px !important;">Jobe Code</th>
+                        <th class="text-center" >Job Title</th>
+                        <th class="text-center" >Phone</th>
+                        
+                        <th class="text-center" >Recruiter</th>
+                        <th class="text-center" >Resume</th>
+                        <th class="text-center" >IQ</th>
+                        <th class="text-center" >MTBI</th>
+                        <th class="text-center" >Screening</th>
+                        <th class="text-center" >Status</th>
+                        <th class="text-center" >Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+             
+                    <tr *ngFor="let item of items">
+                        <td >{{item.apl }}</td>
+                        <td >{{item.name }}</td>
+                        <td class="text-center">{{item.jobcode }}</td>
+                        <td class="text-center">{{item.jobtitle }}</td>
+                        <td class="text-center">{{item.phone }}</td>
+                        
+                        <td class="text-center">{{item.recruiter }}</td>
+                        <td class="text-center" style="cursor: pointer;">
+                          <a><mat-icon>description</mat-icon></a></td>
+                        <td class="text-center">{{item.iq}}</td>
+                        <td class="text-center">{{item.mbti }}</td>
+                        <td class="text-center"> <a href="">{{item.screening }}</a></td>
+                        <td class="text-center">{{item.status }}</td>
+
+                        
+                        <td  class="text-center">
+                            <a  title="Edit" style="cursor: pointer; margin-right: 10px !important">
+                                <i class="fa fa-edit" style="color: cornflowerblue"></i>
+                            </a>
+                            <a >
+                                <i style="cursor: pointer;" title="Delete" class="fa fa-trash red"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator  [pageSizeOptions]="[5, 10, 25, 50, 100]"  showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+
+
+
+
+
+  </div>
+</div>     

@@ -1,0 +1,88 @@
+<!--This page is used to manage locations-->
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <div class="row" style="margin-bottom:5px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <input type="text" class="form-control" placeholder="Search by City" >
+                </div>
+                <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <button class="add-hover btn btn-success" (click)="filterCountries()">Search</button>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="margin-left: -18px;">
+                    <button class="btn filter-hover" style="background-color:#37474f; color:#fff !important" (click)="clearFilters()">Clear</button>
+                </div> -->
+            </div>
+            
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <button mat-raised-button class="pull-right btn-success" (click)="openCityDialog('Add City')">
+                        <mat-icon>person_add</mat-icon> Add State
+                    </button>
+                    <button mat-raised-button class="btn-default" style="float:right;margin-right: 10px" (click)="goBack()"><i class="fa fa-arrow-left"></i>Back</button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="table-responsive topmargin">
+            <table id="example2" class="table table-bordered table-hover table-striped">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <!-- <th><input type="checkbox" name="select_all"/></th> -->
+                        <th>City</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let city of cities">
+                        <!-- <td><input type="checkbox" name="select_single"></td> -->
+                        <td>{{city.city}}</td>
+                        <td>
+                            <a 
+                            class="status"
+                            mwlConfirmationPopover
+                            [popoverTitle]="popoverStatusTitle"
+                            [popoverMessage]="popoverStatusMessage"
+                            placement="left"
+                            (confirm)="saveStatus();city.status=!city.status"
+                            (cancel)="cancelClicked = true">
+                            {{city.status?'Active':'Inactive'}}
+                        </a>
+                    </td>
+                    <td>
+                        <a title="Edit City" style="margin-right: 10px; cursor: pointer;" (click)="openCityDialog('Update City')">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a mwlConfirmationPopover
+                        [popoverTitle]="popoverTitle"
+                        [popoverMessage]="popoverMessage"
+                        placement="left"
+                        (confirm)="deleteCity()"
+                        (cancel)="cancelClicked = true">
+                        <i style="cursor: pointer;" title="Delete City" class="fa fa-trash red"></i>
+                    </a>
+                </td>
+                <!-- <td>{{location.sg_tbl_state.state_name}}</td>
+                    <td *ngIf="!canUpdate" [ngClass]="location.is_active ? '' : 'status Red'">{{location.is_active?'Active':'Inactive'}}</td>
+                    <td *ngIf="canUpdate">
+                        <a 
+                        [ngClass]="location.is_active ? 'status' : 'status Red'"
+                        mwlConfirmationPopover
+                        [popoverTitle]="popoverStatusTitle"
+                        [popoverMessage]="popoverStatusMessage"
+                        placement="left"
+                        (confirm)="updateLocation(location.location_id, !location.is_active, 'status');"
+                        (cancel)="cancelClicked = true">
+                        {{location.is_active?'Active':'Inactive'}}
+                    </a>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>

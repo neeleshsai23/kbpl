@@ -1,0 +1,275 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    ADD RFB
+  </h1>
+</div>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Select Vendor</ng-template>
+     
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-4 add-member-label">Select Vendor : </label>
+          <div class="col-sm-8">
+            <mat-select  class="form-control" placeholder="Select Vendor" >
+              <mat-option>M/s Power solutions</mat-option>
+              <mat-option>Bharat Power Solutions</mat-option>
+              <mat-option>Tata Power Solutions</mat-option>
+            </mat-select>
+          </div>
+        </div>
+    
+        
+        
+      </form>
+       <mat-dialog-actions align="end">
+        <button mat-button matStepperNext  class="btn-primary">Proceed</button>
+      </mat-dialog-actions>
+     
+    </form>
+  </mat-step>
+
+
+  <mat-step>
+    <ng-template matStepLabel>Specify Item List </ng-template>
+    
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-xs-12">
+          <div id="grid-table-container" class="table-responsive">
+                  <table id="example2" class="table table-bordered table-hover" style="width: 100%;">
+                      <thead class="tbl-head">
+                          <tr class="tr-grid-header">
+                            <th >Select Category</th>
+                            <th class="text-center"> Select Item</th>
+                            <th class="text-center">Unit</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Remarks</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td  style="min-width: 110px !important;">
+                            <mat-select  class="form-control" placeholder="Select Category"  [multiple]="true">
+                              <mat-option>Electrical</mat-option>
+                              <mat-option>Mechanical</mat-option>
+                              <mat-option>Earth Work</mat-option>
+                            </mat-select>
+                          
+                      </td>
+                   
+                      <td style="text-align: center!important;min-width: 110px !important;"> 
+                        <mat-select  class="form-control" placeholder="Select Item" [multiple]="true">
+                          <mat-option>Screw</mat-option>
+                          <mat-option>Wires</mat-option>
+                          <mat-option>Bricks</mat-option>
+                        </mat-select></td>
+                      <td style="text-align: center!important;">   <input type="text" class="form-control" id="step" placeholder="Enter Unit"> </td>
+                      <td style="text-align: center!important;"> <input type="text" class="form-control" id="step" placeholder="Enter Quantity"></td>
+                      <td style="text-align: center!important;"> <input type="text" class="form-control" id="step" placeholder="Enter Remarks"></td>                  
+                  
+                     
+      </tr>
+                      </tbody>
+                  </table>
+                
+              </div>
+          </div>
+      </div>
+
+<div class="row">
+  <button mat-raised-button  class=" btn-primary filters-hover " style="margin-left: 85%;"
+  >
+  <mat-icon>add</mat-icon>Add 
+</button>
+</div>
+
+
+
+      <div class="row" style="margin-top: 15px;">
+        <div class="col-xs-12">
+            <div id="grid-table-container" class="table-responsive">
+                    <table id="example2" class="table table-bordered table-hover" style="width: 100%;">
+                        <thead class="tbl-head">
+                            <tr class="tr-grid-header">
+                              <th >Category</th>
+                              <th class="text-center">Item</th>
+                              <th class="text-center">Unit</th>
+                              <th class="text-center">Quantity</th>
+                              <th class="text-center">Remarks</th>
+                            </tr>
+                        </thead>
+                       
+                    <tbody>
+                        <tr *ngFor="let item of items">
+                            <td  style="min-width: 70px !important;"><a>
+                             {{item.Select_Category}}   
+                            </a>
+                        </td>
+                      
+                        <td style="text-align: center!important;">{{item.Select_Item}} </td>
+                        <td style="text-align: center!important;">{{item.Unit}} </td>
+                        <td style="text-align: center!important;">{{item.Quantity}} </td>
+                        <td style="text-align: center!important;">{{item.Remarks}} </td>                  
+                      
+                       
+        </tr>
+                        </tbody>
+                    </table>
+                  
+                </div>
+            </div>
+        </div>
+
+
+
+
+ 
+  <mat-dialog-actions align="end">
+    <button  mat-raised-button color="primary" matStepperPrevious>Back</button>
+    
+    <button  mat-raised-button  class="add-dark-hover btn-success" (click)="close()" >Submit</button>
+  </mat-dialog-actions>
+  </mat-step>
+
+ 
+
+
+
+
+
+
+</mat-horizontal-stepper>
+
+
+<!--<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Add RFB
+  </h1>
+</div>
+<mat-horizontal-stepper  #stepper>
+  <mat-step [stepControl]="firstFormGroup" label="Select Vendor">
+    <form [formGroup]="firstFormGroup" class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Select Vendor : </label>
+        <div class="col-sm-8">
+          <mat-select  class="form-control" placeholder="Select Vendor" >
+            <mat-option>M/s Power solutions</mat-option>
+            <mat-option>Bharat Power Solutions</mat-option>
+            <mat-option>Tata Power Solutions</mat-option>
+          </mat-select>
+        </div>
+      </div>
+     
+      
+       <mat-dialog-actions align="end">
+        <button mat-button matStepperNext  class="btn-primary">Proceed</button>
+      </mat-dialog-actions>
+     
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Specify List Item">
+    <form [formGroup]="secondFormGroup" class="form-horizontal">
+    <div class="row">
+      <div class="col-xs-12">
+          <div id="grid-table-container" class="table-responsive">
+              <table matSort id="example2" class="table table-bordered table-hover">
+                  <thead class="tbl-head">
+                      <tr>
+                          <th >Select Category</th>
+                          <th class="text-center"> Select Item</th>
+                          <th class="text-center">Unit</th>
+                          <th class="text-center">Quantity</th>
+                          <th class="text-center">Remarks</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td  style="min-width: 70px !important;">
+                            <mat-select  class="form-control" placeholder="Select Category"  [multiple]="true">
+                              <mat-option>Electrical</mat-option>
+                              <mat-option>Mechanical</mat-option>
+                              <mat-option>Earth Work</mat-option>
+                            </mat-select>
+                          
+                      </td>
+                   
+                      <td style="text-align: center!important;"> 
+                        <mat-select  class="form-control" placeholder="Select Item" [multiple]="true">
+                          <mat-option>Screw</mat-option>
+                          <mat-option>Wires</mat-option>
+                          <mat-option>Bricks</mat-option>
+                        </mat-select></td>
+                      <td style="text-align: center!important;">   <input type="text" class="form-control" id="step" placeholder="Enter Unit"> </td>
+                      <td style="text-align: center!important;"> <input type="text" class="form-control" id="step" placeholder="Enter Quantity"></td>
+                      <td style="text-align: center!important;"> <input type="text" class="form-control" id="step" placeholder="Enter Remarks"></td>                  
+                  
+                     
+      </tr>
+      
+      </tbody>
+      </table>
+     
+      </div>
+      </div>
+      </div>
+    </form>
+
+
+   
+
+      <div class="row">
+        <div class="col-xs-12">
+            <div id="grid-table-container" class="table-responsive">
+                <table matSort id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr>
+                            <th >Category</th>
+                            <th class="text-center">Item</th>
+                            <th class="text-center">Unit</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items">
+                            <td  style="min-width: 70px !important;"><a>
+                             {{item.Select_Category}}   
+                            </a>
+                        </td>
+                      
+                        <td style="text-align: center!important;">{{item.Select_Item}} </td>
+                        <td style="text-align: center!important;">{{item.Unit}} </td>
+                        <td style="text-align: center!important;">{{item.Quantity}} </td>
+                        <td style="text-align: center!important;">{{item.Remarks}} </td>                  
+                        <!--<td style="text-align: center!important;"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>
+                       
+        </tr>
+        
+        </tbody>
+        </table>
+      
+        </div>
+        </div>
+        </div>
+
+
+
+     
+      
+
+      <mat-dialog-actions align="end">
+        <button  mat-raised-button  style="background-color: grey;" matStepperPrevious>Back</button>
+        <button mat-button class="add-dark-hover btn-danger" (click)="close()">Discard</button>
+        <button mat-button matStepperNext class="add-dark-hover btn-success" (click)="close()" >Confirm</button>
+      </mat-dialog-actions>
+    
+  </mat-step>
+
+ 
+
+
+
+
+
+</mat-horizontal-stepper>-->

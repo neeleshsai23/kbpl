@@ -1,0 +1,118 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Add PO
+  </h1>
+</div>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">PO Date : </label>
+        <div class="col-sm-8">
+          <input type="date" class="form-control" id="step" placeholder="Enter Challan">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Reference : </label>
+        <div class="col-sm-8">
+          <mat-select  class="form-control" placeholder="Select Reference" >
+            <mat-option>PO/MRC/151</mat-option>
+            <mat-option>PO/MRC/152</mat-option>
+            <mat-option>PO/MRC/153</mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Vendor : </label>
+        <div class="col-sm-8">
+          <mat-select  class="form-control" placeholder="Select Vendor" >
+            <mat-option>M/s Sloutions</mat-option>
+            <mat-option>T/s Sloutions</mat-option>
+            <mat-option>P/s Sloutions</mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">PO due date : </label>
+        <div class="col-sm-8">
+          <input type="date" class="form-control" id="step" placeholder="Enter Challan">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Expected Return Date : </label>
+        <div class="col-sm-8">
+          <input type="file" placeholder="Enter Return ">
+        </div>
+      </div>
+      
+       <mat-dialog-actions align="end">
+        <button mat-button matStepperNext  class="btn-primary">Next</button>
+      </mat-dialog-actions>
+     
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Next">
+   
+    <form [formGroup]="secondFormGroup" class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Select Category : </label>
+        <div class="col-sm-8">
+          <mat-select  class="form-control" placeholder="Select Reference" >
+            <mat-option>Electrical</mat-option>
+            <mat-option>Mechanical</mat-option>
+            <mat-option>Earth Work</mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Select Item : </label>
+        <div class="col-sm-8">
+          <mat-select  class="form-control" placeholder="Select Reference" >
+            <mat-option>Screw</mat-option>
+            <mat-option>Wires</mat-option>
+            <mat-option>Bricks</mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Unit : </label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="step" placeholder="Enter Unit">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Quantity : </label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="step" placeholder="Enter Quantity">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Rate : </label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="step" placeholder="Enter Rate">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Amount : </label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="step" placeholder="Enter Amount">
+        </div>
+      </div>
+     
+      
+
+      <mat-dialog-actions align="end">
+        <button  mat-raised-button  style="background-color: grey;" matStepperPrevious>Back</button>
+        <button mat-button class="add-dark-hover btn-danger" (click)="close()">Discard</button>
+        <button mat-button matStepperNext class="add-dark-hover btn-success" (click)="close()" >Confirm</button>
+      </mat-dialog-actions>
+    </form>
+  </mat-step>
+
+ 
+
+
+
+
+
+</mat-horizontal-stepper>

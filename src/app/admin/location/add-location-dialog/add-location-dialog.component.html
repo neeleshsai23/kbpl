@@ -1,0 +1,30 @@
+<!--This page is used to add or edit users-->
+<h1 mat-dialog-title><span>{{user}}</span></h1>
+<hr>
+<div mat-dialog-content>
+    
+    <form class="form-horizontal">
+        <div *ngIf="value == 'Country'" class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" >Country: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" placeholder="Enter Country Name">
+            </div>
+        </div>
+        <div *ngIf="value == 'State'" class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" >State: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" placeholder="Enter State Name">
+            </div>
+        </div>
+        <div *ngIf="value == 'City'" class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" >City: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" placeholder="Enter City Name">
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end" style="margin-right:-8px!important">
+    <button mat-raised-button style="cursor:pointer;" class="add-hover btn-success" (click)="addCountry()"><span *ngIf="lateralValue == 'Add'"> Save</span><span *ngIf="lateralValue == 'Update'"> Update</span></button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">&nbsp;Cancel</button>
+</mat-dialog-actions> 

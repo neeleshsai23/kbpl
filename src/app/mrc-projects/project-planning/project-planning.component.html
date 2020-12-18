@@ -1,0 +1,46 @@
+<app-project-dashboard></app-project-dashboard>
+<div class="row-wrap">
+  <div class="w-100">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="pills">
+          <ul class="nav nav-pills" style="margin-top: 15px;">
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-planning/activities']">
+                <mat-icon>grid_on</mat-icon> Activities
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-planning/allocation']">
+                <mat-icon>layers</mat-icon> Allocation
+              </a>
+            </li>
+            
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-planning/procurement']">
+                <mat-icon>time_to_leave </mat-icon> Requisitions
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-planning/drawing']">
+                <mat-icon>crop_square</mat-icon> Drawing
+              </a>
+            </li>
+
+
+
+
+
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-planning/progress']">
+                <mat-icon>today </mat-icon> Progress
+              </a>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

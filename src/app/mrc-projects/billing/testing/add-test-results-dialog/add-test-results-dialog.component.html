@@ -1,0 +1,69 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Add Test Results
+  </h1>
+</div>
+<div mat-dialog-content>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="label-control col-sm-4">
+        Test Name :
+      </label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Enter Test Name"/>
+
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label class="label-control col-sm-4">
+        Test Date :
+
+      </label>
+      <div class="col-sm-8">
+        <div class="input-icon right">
+          <input class="form-control"  placeholder="MM/DD/YYYY"
+            id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1">
+          <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label class="label-control col-sm-4">
+        Lab Name :
+
+      </label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" placeholder="Enter Lab Name"/>
+
+      </div>
+
+    </div>
+    <div class="form-group">
+      	<label class="label-control col-sm-4">
+          Status:
+
+        </label>
+        <div class="col-sm-8">
+          <mat-select class="form-control" placeholder="Select Status">
+            <mat-option>Pending</mat-option>
+            <mat-option>Done</mat-option>
+          </mat-select>
+
+        </div>
+    </div>
+
+  </form>
+</div>
+<mat-dialog-actions class="col-sm-12" align="end">
+ 
+  <button mat-raised-button class="btn-primary" (click)="close()">
+    &nbsp;Save
+  </button>
+  <button mat-raised-button class="CancelClass" (click)="close()">
+    &nbsp;Close
+  </button>
+</mat-dialog-actions>

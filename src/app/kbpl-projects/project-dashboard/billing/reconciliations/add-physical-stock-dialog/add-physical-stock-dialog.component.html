@@ -1,0 +1,90 @@
+
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Upload Physical Stock
+  </h1>
+</div>
+<mat-horizontal-stepper #stepper>
+    <mat-step>
+        <div mat-dialog-content>
+            <form class="form-horizontal">
+                <ng-template matStepLabel>Upload File</ng-template>
+                <div class="form-group">
+                  <label class="control-label col-sm-3 add-member-label">Upload File : </label>
+                  <input type="file" style="margin-top: 5px;">
+                  <!--<div class="col-sm-8">
+                    <input type="file" style="display: none" #fileInput accept="image/*" (change)="onChangeFileInput()" />
+                    <button mat-raised-button  class="file-select-button" (click)="onClickFileInputButton()">
+                      
+                      Choose file
+                    </button>
+            
+                    <p class="file-name" *ngIf="!file; else fileName"></p>
+                    <ng-template #fileName>
+                      <p class="file-name">{{ file?.name }}</p>
+                    </ng-template>
+                  </div>-->
+                </div>
+            </form>
+          </div>
+          <mat-dialog-actions class="col-sm-12" align="end">
+              <button mat-raised-button   [ngClass]="'btn-primary'" matStepperNext><mat-icon>arrow_forward</mat-icon>&nbsp;Proceed</button>
+
+              <button mat-raised-button class="CancelClass" (click)="close()">&nbsp;Close</button>
+            </mat-dialog-actions>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Preview & Confirm</ng-template>
+      <div class="row">
+        <div class="col-xs-12">
+            <div id="grid-table-container" class="table-responsive" style="height: 200px !important;">
+              <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr>
+                        <th >Date</th>
+                        <th >Uploaded By</th>
+                        <th >Counted By</th>
+                        <th >Items</th>
+                        <th >Quantity Variance</th>
+                        <th >Loss (Rs. 000)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let value of values">
+                    
+                        <td >{{value.date }}</td>
+                        <td >{{value.uploaded }}</td>
+                        <td >{{value.counted }}</td>
+                        <td>{{value.items}}</td>
+                        <td>{{value.variance}}</td>
+                        <td *ngIf="0 > value.loss">({{value.loss}})</td>
+                      <td *ngIf="value.loss>0" style="color: red;">{{value.loss}}</td>
+                    </tr>
+   
+                </tbody>
+            </table>
+      
+          </div>
+        </div>
+      </div>
+              <mat-dialog-actions class="col-sm-12" align="end">
+                <!-- <button *ngIf="!project"mat-raised-button [disabled]="!projectForm.valid" 
+                  [ngClass]="!projectForm.valid ? '' : 'btn-primary'">
+                  <mat-icon>send</mat-icon>&nbsp;Save
+                </button>
+                <button *ngIf="project" mat-raised-button [disabled]="!projectForm.valid" 
+                  [ngClass]="!projectForm.valid ? '' : 'btn-primary'">
+                  <mat-icon>update</mat-icon>&nbsp;Update
+                </button> -->
+                <button mat-raised-button class="btn-primary" (click)="close()">
+                  &nbsp;Confirm
+                </button>
+                <button mat-raised-button class="CancelClass" (click)="close()">
+                  &nbsp;Close
+                </button>
+              </mat-dialog-actions>
+      </mat-step>
+ </mat-horizontal-stepper>
+
+
+

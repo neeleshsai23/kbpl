@@ -1,0 +1,82 @@
+
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+<div class="row" style="margin-bottom:7px;">
+  <div class="col-xs-6 ">
+  </div>
+  <div class="col-xs-6 ">
+      <div class="flex-p">
+         
+          <button mat-raised-button  class="pull-right  btn-primary filters-hover margin-right-10"  (click)="addpo()"
+          >
+          <mat-icon>add</mat-icon>Add PO
+      </button>
+      
+  </div>
+  
+</div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th >PO Date</th>
+                      <th class="text-center">Reference</th>
+                      
+                      <th class="text-center">Vendor</th>
+                      <th class="text-center">PO Due date</th>
+                      <th class="text-center">Items</th>
+                      <th class="text-center">PO</th>
+                      
+                      <th class="text-center">Status</th>
+                     
+                    
+                      <th class="text-center" style="width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of items">
+                      <td style="min-width: 70px !important;">
+                          {{item.podate}}
+                    
+                  </td>
+                  <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                  
+                  <td style="text-align: center!important;">{{item.ref }}</td>
+                  <td style="text-align: center!important;">{{item.vendor}}</td>
+                  <td style="text-align: center!important;">{{item.podue }}</td>
+                  <td style="text-align: center!important;"><a style="color: blue;cursor: pointer;" (click)="showitems()">{{item.items }}</a></td>
+                  <td style="text-align: center!important;"><a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" style="color: blue;cursor: pointer;">View</a></td>
+                  <td style="text-align: center!important;">{{item.status }}</td>
+                
+         
+                  
+      <td  class="text-center">
+          <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Item">
+              <i class="fa fa-edit" style="color: cornflowerblue"></i>
+          </a>
+        
+          <a ><i class="fa fa-trash red" matTooltip="Delete Item"  style="cursor: pointer;"></i></a>
+      </td> 
+  </tr>
+ 
+</tbody>
+</table>
+<mat-paginator
+[pageSizeOptions]="[5, 10, 25, 50, 100]"
+showFirstLastButtons></mat-paginator>
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>
+
+  </div>
+</div>

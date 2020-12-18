@@ -1,0 +1,41 @@
+<app-project-dashboard></app-project-dashboard>
+<div class="row-wrap">
+  <div class="w-100">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="pills">
+          <ul class="nav nav-pills" style="margin-top: 15px;">
+            
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-site/dpr']">
+                <mat-icon>grid_on</mat-icon> DLR
+
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-site/dlr']">
+                <mat-icon>crop_square</mat-icon> DPR
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-site/issues']">
+                <mat-icon>perm_identity </mat-icon> Issues
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-site/photos']">
+                <mat-icon>device_hub</mat-icon> Photos
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/project-site/targets']">
+                <mat-icon>av_timer</mat-icon> Targets
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

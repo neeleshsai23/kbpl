@@ -1,0 +1,236 @@
+<div class="row" style="margin-top: 15px;">
+    <div fxFlex="100" fxFlex.gt-sm="50" class=" col-lg-6">
+        <div class="flex-p"> 
+          <mat-card>
+            <mat-card-header fxLayoutAlign="center center">                
+              <mat-card-subtitle><h2> Distribution by Status</h2></mat-card-subtitle>
+            </mat-card-header>
+            <div class="w-100 h-300p">
+              <ngx-charts-pie-chart
+              [scheme]="colorScheme"
+              [results]="single"
+              [legend]="showLegend"
+              [explodeSlices]="explodeSlices"
+              [labels]="showLabels"
+              [doughnut]="doughnut"
+              [gradient]="gradient"
+              >
+            </ngx-charts-pie-chart>                  
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="50" class="col-lg-6">
+      <div class="flex-p"> 
+        <mat-card>
+          <mat-card-header fxLayoutAlign="center center">                
+            <mat-card-subtitle><h2> Distribution by Billing</h2></mat-card-subtitle>
+          </mat-card-header>
+          <div class="w-100 h-300p">
+            <ngx-charts-pie-chart
+            [scheme]="colorScheme"
+            [results]="singles"
+            [legend]="showLegend"
+            [explodeSlices]="explodeSlices"
+            [labels]="showLabels"
+            [doughnut]="doughnut"
+            [gradient]="gradient"
+            >
+          </ngx-charts-pie-chart>                  
+        </div>
+      </mat-card>
+    </div>
+    </div>
+    </div>
+
+
+<div class="row" style="margin-bottom:7px;">
+  <div class="col-xs-6 ">
+  </div>
+  <div class="col-xs-6 ">
+      <div class="flex-p">
+          <button mat-raised-button class="pull-right  btn-primary" (click)="openProjectDialog(null)">
+              <mat-icon>add</mat-icon> Add Contract
+          </button>
+          <button mat-raised-button  class="pull-right  btn-primary margin-right-10" (click)="openGridColumnsDialog()">
+              <mat-icon>grid_on</mat-icon>Grid Columns
+          </button>
+          <button mat-raised-button color="primary" class="pull-right filters-hover margin-right-10"
+          (click)="filterToggle = !filterToggle">
+          <mat-icon>filter_list</mat-icon> Filter
+      </button>
+      
+  </div>
+  
+</div>
+</div>
+<div fxLayout="row wrap" *ngIf="filterToggle">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+      <mat-card class="filter">
+          <mat-card-content>
+              <div class="row">
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Contract #: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input type="text" placeholder="Search by Contract #" class="form-control" [formControl]="contactName">
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Client Name: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input type="text" placeholder="Search by Client" class="form-control" [formControl]="clientName">
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Contract Name: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input type="text" placeholder="Search by Contract Name" class="form-control" [formControl]="jobTitle">
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="row" style="padding-top:10px !important">
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Start Date: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input class="form-control"  [formControl]="startendDate" class="form-control" placeholder="MM/DD/YYYY" (keypress)="false" [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" name="dt5">
+                          <owl-date-time [pickerType]="'calendar'" #dt5></owl-date-time>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Target Date: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input class="form-control"  [formControl]="startdueDate" class="form-control" placeholder="MM/DD/YYYY" (keypress)="false" [owlDateTimeTrigger]="dt6" [owlDateTime]="dt6" name="dt6">
+                          <owl-date-time [pickerType]="'calendar'" #dt6></owl-date-time>
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Agreement Date: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input class="form-control"  [formControl]="activityDate" class="form-control" placeholder="MM/DD/YYYY" (keypress)="false" [owlDateTimeTrigger]="dt7" [owlDateTime]="dt7" name="dt7">
+                          <owl-date-time [pickerType]="'calendar'" #dt7></owl-date-time>
+                      </div>
+                  </div>
+              </div>
+              <div class="row" style="padding-top:10px !important">
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          Consultant: 
+                      </div>
+                      <div class="col-sm-8">
+                          <input type="text" class="form-control" placeholder=" Search by Consultant " [formControl]="contactNumber" >
+                      </div>
+                  </div>
+           
+                  <div class="col-lg-1" style="margin-left:80%!important;">
+                      <button mat-raised-button  class="pull-right btn-primary"> Search</button>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                      <button mat-raised-button style="background-color:#37474f; color:#fff !important" > Clear</button>
+                  </div>
+                  <a (click)="filterToggle = !filterToggle" class="pull-right" style="font-size: 25px; cursor: pointer; margin-left: 5px;">
+                      <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+                  </a>
+                  
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th class="text-center">Contract #</th>
+                      <th class="text-center">Contract Name</th>
+                      <th class="text-center">Client</th>
+                      <th class="text-center">Consultant</th>
+                      <th class="text-center">Category</th>
+                      <th class="text-center">Invoices</th>
+                      <th class="text-center">BOQ Items</th>
+                      <th class="text-center">LA #</th>
+                      <th class="text-center">LA Date</th>
+                      <th class="text-center">Agreement #</th>
+                      <th class="text-center">Agreement Date</th>
+                      <th class="text-center">Start Date</th>
+                      <th class="text-center">Target Date </th>
+                      <th class="text-center">Budget (In Lakhs)</th>
+                      <th class="text-center">Billed (In Lakhs)</th>
+                      <th class="text-center">Paid (In Lakhs)</th>
+                      <th class="text-center">Balance (In Lakhs)</th>
+                      <th class="text-center">Status </th>
+                      <th class="text-center">Completion</th>
+                      <th class="text-center" style="min-width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of items">
+                      <td style="min-width: 50px !important;"><a  matTooltip="View Contract Dashboard"
+                          routerLink="/mrc/contracts/project-dashboard/analytics" target="_blank">
+                          {{item.project_code}}
+                      </a>
+                  </td>
+                  <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                  <td style="text-align: center!important;">{{item.project_name }}</td>
+                  <td style="text-align: center!important;">{{item.client }}</td>
+                  <td style="text-align: center!important;">{{item.consultant }}</td>
+                  <td style="text-align: center!important;">{{item.category }}</td>
+
+                  <td style="text-align: center!important;"><a style="color: blue;cursor: pointer;">{{item.invoices }}</a></td>
+
+                  <td style="min-width: 70px !important;"><a style="color: blue;cursor: pointer;"
+                    routerLink="/mrc/projects/project-dashboard/project-planning/activities" target="_blank">
+                    {{item.BOQ_Items}}
+                </a>
+            </td>
+                  <td style="text-align: center!important;">{{item.la }}</td>
+                  <td style="text-align: center!important;">{{item.la_date }}</td>
+                  <td style="text-align: center!important;">{{item.agreement }}</td>
+                  <td style="text-align: center!important;">{{item.agreement_date }}</td>
+                  <td style="text-align: center!important;">{{item.start_date }}</td>
+                  <td style="text-align: center!important;">{{item.target_date }}</td>
+                  <td style="text-align: center!important;">{{item.total_cost }}</td>
+                  <td style="text-align: center!important;">{{item.billed }}</td>
+                  <td style="text-align: center!important;">{{item.paid }}</td>
+                  <td style="text-align: center!important;">{{item.margin }}</td>
+                  <td style="text-align: center!important;">{{item.Status}}</td>
+                  
+ 
+          <!-- <td style="text-align: center!important;">{{item.awardedAmount}}</td> -->
+         
+      <td style="text-align: center!important;">{{item.Completion }}</td>
+      <td  class="text-center">
+          <a style="cursor: pointer;margin-right:10px; " matTooltip="Update Project" (click)="openProjectDialog(item)">
+              <i class="fa fa-edit" style="color: cornflowerblue"></i>
+          </a>
+          <a ><i class="fa fa-trash red" matTooltip="Delete Project"  style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+      </td> 
+  </tr>
+ 
+</tbody>
+</table>
+<mat-paginator 
+[pageSizeOptions]="[9, 10, 25, 50, 100]"
+showFirstLastButtons></mat-paginator>
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>

@@ -1,0 +1,49 @@
+<!--This page is used to add or edit contacts-->
+<h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Color Code</h1> <hr>
+<div mat-dialog-content>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Color Code : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="color" class="form-control" placeholder="Enter Color Code Name" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Color Code Name : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" placeholder="Enter Color Code Name" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Description : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" placeholder="Enter Description" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="primary"> Default : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"> 
+                
+                <mat-radio-group id="primary" name="primary" >
+                    <mat-radio-button class="margin margins" value="true">Yes</mat-radio-button>
+                    <mat-radio-button class="margins" value="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Time Zone : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <select class='select-option form-control ' required [(ngModel)]='timeOptionSelected' (ngModelChange)='onTimeOptionsSelected($event)' name="Select Time Zone">
+                    <option class='option' [ngValue]="undefined" selected disabled  >--Select Time-Zone--</option>
+                    <option class='option' *ngFor='let option of timeOptions' [value]="option">{{option}}</option>
+                </select>
+            </div>
+        </div> -->
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button class="btn-success" (click)="saveContact()"><span *ngIf="!user">Save</span><span
+        *ngIf="user">Update</span></button>
+        <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Close</button>
+    </mat-dialog-actions>

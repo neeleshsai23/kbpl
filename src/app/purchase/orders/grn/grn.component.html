@@ -1,0 +1,281 @@
+
+ <div fxLayout="row wrap" >
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+      <mat-card class="filter">
+          <mat-card-content>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="col-sm-4 newMarginClass">
+                      Vendor: 
+                  </div>
+                  <div class="col-sm-8">
+                    <mat-select class="form-control" placeholder="Select Vendor">
+                     <mat-option>M/s Power Solutions</mat-option>
+                     <mat-option>R/s Power Solutions</mat-option>
+                     <mat-option>P/s Equipments</mat-option>
+                    </mat-select>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="col-sm-4 newMarginClass">
+                    GRN Status: 
+                </div>
+                <div class="col-sm-8">
+                  <mat-select class="form-control" placeholder="Select Status">
+                   <mat-option>Consignment in Transit</mat-option>
+                   <mat-option>GRN Delayed</mat-option>
+                   <mat-option>GRN Pending</mat-option>
+                  </mat-select>
+                </div>
+            </div>
+                  <div class="col-sm-4">
+                      <div class="col-sm-4 newMarginClass">
+                          PO Ref.No.: 
+                      </div>
+                      <div class="col-sm-8">
+                        <mat-select class="form-control" placeholder="Select PO Ref #">
+                          <mat-option>BGR/OM/BHL/19</mat-option>
+                          <mat-option>BGR/OM/BHL/20</mat-option>
+                        </mat-select>
+                      </div>
+                  </div>
+              </div>
+              
+             
+              <div class="row" style="padding-top:10px !important">
+                
+                  <div class="col-lg-1" style="margin-left:80%!important;">
+                      <button mat-raised-button  class="pull-right btn-primary"> Search</button>
+                  </div>
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                      <button mat-raised-button style="background-color:#37474f; color:#fff !important" > Clear</button>
+                  </div>
+                 
+                  
+              </div>
+          </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+             
+
+
+<mat-card style="padding: 0%;margin-top: 30px;">
+  <div class="row" style="height: 60px;background-color: antiquewhite;text-align: center;">
+    <div class="col-lg-3">
+      <h3 >M/s Power Solutions</h3>
+      <span>Vendor</span>
+    </div>
+    <div class="col-lg-3">
+      <h3>0</h3>
+      <span>Consignments Arrived</span>
+    </div>
+    <div class="col-lg-3">
+      <h3>2</h3>
+      <span>No. of PO's in Consignments</span>
+    </div>
+    
+    <div class="col-lg-3">
+      <h3>2</h3>
+      <span>No. of Invoices in Consignments</span>
+    </div>
+    
+  </div>
+  <div class="row" style="min-height: 30px;background-color: burlywood;">
+<a style="margin-left: 90%;margin-top: 6px;color: blue;cursor: pointer;" (click)="filterToggle = !filterToggle">
+  Details
+</a>
+
+</div>
+<div fxLayout="row wrap" *ngIf="filterToggle">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+    <div class="row filter" >
+      <div class="col-xs-12">
+          <div id="grid-table-container" class="table-responsive">
+              <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                  <tr>
+                    <th >Address</th>
+                    <th class="text-center">Vendor Name</th>
+                    <th class="text-center">Con. Ref. No.</th>
+                    <th class="text-center">Status</th>
+                    
+                    <th class="text-center">PO Ref. No.</th>
+                    <th class="text-center">PO Date</th>
+                    <th class="text-center">PO Value</th>
+                    <th class="text-center">PO Balance Value</th>
+                    <th class="text-center">No. of Invoices</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let item of items">
+                    <td >{{item.BN}}</td> 
+                <td style="text-align: center!important;">{{item.SN}}</td> 
+                <td style="text-align: center!important;">{{item.Con}} </td>
+                <td style="text-align: center!important;">{{item.Status}} </td>
+            
+                <td style="text-align: center!important;">{{item.POR}} </td>                  
+                <!--<td style="text-align: center!important;"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>-->
+                <td style="text-align: center!important;">{{item.POD}} </td>
+                <td style="text-align: center!important;">{{item.POV}} </td>
+                <td style="text-align: center!important;">{{item.POB}} </td>
+                <td style="text-align: center!important;">{{item.No}} </td>
+  </tr>
+  </tbody>
+  </table>
+    <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+      showFirstLastButtons></mat-paginator> -->
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+</mat-card>
+
+
+<mat-card style="padding: 0%;margin-top: 30px;">
+  <div class="row" style="height: 60px;background-color: antiquewhite;text-align: center;">
+    <div class="col-lg-3">
+      <h3 >R/s Power Solutions</h3>
+      <span>Vendor</span>
+    </div>
+    <div class="col-lg-3">
+      <h3>1</h3>
+      <span>Consignments Arrived</span>
+    </div>
+    <div class="col-lg-3">
+      <h3>9</h3>
+      <span>No. of PO's in Consignments</span>
+    </div>
+    
+    <div class="col-lg-3">
+      <h3>4</h3>
+      <span>No. of Invoices in Consignments</span>
+    </div>
+    
+  </div>
+  <div class="row" style="min-height: 30px;background-color: burlywood;">
+<a style="margin-left: 90%;margin-top: 6px;color: blue;cursor: pointer;" (click)="filterToggle1 = !filterToggle1">
+  Details
+</a>
+
+</div>
+<div fxLayout="row wrap" *ngIf="filterToggle1">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+    <div class="row filter" >
+      <div class="col-xs-12">
+          <div id="grid-table-container" class="table-responsive">
+              <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                  <tr>
+                    <th >Address</th>
+                    <th class="text-center">Vendor Name</th>
+                    <th class="text-center">Con. Ref. No.</th>
+                    <th class="text-center">Status</th>
+                    
+                    <th class="text-center">PO Ref. No.</th>
+                    <th class="text-center">PO Date</th>
+                    <th class="text-center">PO Value</th>
+                    <th class="text-center">PO Balance Value</th>
+                    <th class="text-center">No. of Invoices</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let item of items">
+                    <td >{{item.BN}}</td> 
+                <td style="text-align: center!important;">{{item.SN}}</td> 
+                <td style="text-align: center!important;">{{item.Con}} </td>
+                <td style="text-align: center!important;">{{item.Status}} </td>
+            
+                <td style="text-align: center!important;">{{item.POR}} </td>                  
+                <!--<td style="text-align: center!important;"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>-->
+                <td style="text-align: center!important;">{{item.POD}} </td>
+                <td style="text-align: center!important;">{{item.POV}} </td>
+                <td style="text-align: center!important;">{{item.POB}} </td>
+                <td style="text-align: center!important;">{{item.No}} </td>
+  </tr>
+  </tbody>
+  </table>
+    <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+      showFirstLastButtons></mat-paginator> -->
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+</mat-card>
+
+<mat-card style="padding: 0%;margin-top: 30px;">
+  <div class="row" style="height: 60px;background-color: antiquewhite;text-align: center;">
+    <div class="col-lg-3">
+      <h3 >P/s Equipments</h3>
+      <span>Vendor</span>
+    </div>
+    <div class="col-lg-3">
+      <h3>2</h3>
+      <span>Consignments Arrived</span>
+    </div>
+    <div class="col-lg-3">
+      <h3>7</h3>
+      <span>No. of PO's in Consignments</span>
+    </div>
+    
+    <div class="col-lg-3">
+      <h3>5</h3>
+      <span>No. of Invoices in Consignments</span>
+    </div>
+    
+  </div>
+  <div class="row" style="min-height: 30px;background-color: burlywood;">
+<a style="margin-left: 90%;margin-top: 6px;color: blue;cursor: pointer;" (click)="filterToggle2 = !filterToggle2">
+  Details
+</a>
+
+</div>
+<div fxLayout="row wrap" *ngIf="filterToggle2">
+  <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 margins">
+    <div class="row filter" >
+      <div class="col-xs-12">
+          <div id="grid-table-container" class="table-responsive">
+              <table matSort id="example2" class="table table-bordered table-hover">
+                  <thead class="tbl-head">
+                    <tr>
+                      <th >Address</th>
+                      <th class="text-center">Vendor Name</th>
+                      <th class="text-center">Con. Ref. No.</th>
+                      <th class="text-center">Status</th>
+                      
+                      <th class="text-center">PO Ref. No.</th>
+                      <th class="text-center">PO Date</th>
+                      <th class="text-center">PO Value</th>
+                      <th class="text-center">PO Balance Value</th>
+                      <th class="text-center">No. of Invoices</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor = "let item of items">
+                      <td >{{item.BN}}</td> 
+                  <td style="text-align: center!important;">{{item.SN}}</td> 
+                  <td style="text-align: center!important;">{{item.Con}} </td>
+                  <td style="text-align: center!important;">{{item.Status}} </td>
+              
+                  <td style="text-align: center!important;">{{item.POR}} </td>                  
+                  <!--<td style="text-align: center!important;"><a style="cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank"><mat-icon>visibility</mat-icon></a></td>-->
+                  <td style="text-align: center!important;">{{item.POD}} </td>
+                  <td style="text-align: center!important;">{{item.POV}} </td>
+                  <td style="text-align: center!important;">{{item.POB}} </td>
+                  <td style="text-align: center!important;">{{item.No}} </td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+      showFirstLastButtons></mat-paginator> -->
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+</mat-card>

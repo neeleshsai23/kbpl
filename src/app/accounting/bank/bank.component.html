@@ -1,0 +1,33 @@
+<div fxLayout="row wrap">
+  <div class="w-100">
+    <div fxLayout="row">
+      <div class="col-xs-12">
+        <div class="pills">
+          <ul class="nav nav-pills" style="margin-top: 15px;">
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/bank/bank-accounts']">
+                <mat-icon>receipt</mat-icon> Bank Accounts
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/bank/documentation']">
+                <mat-icon>crop_square</mat-icon> Documentation
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/bank/loan-details']">
+                <mat-icon>place </mat-icon> Loan Details
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/bank/reconciliation']">
+                <mat-icon>today </mat-icon> Reconciliation
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

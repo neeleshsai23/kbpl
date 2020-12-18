@@ -1,0 +1,49 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    View Items
+  </h1>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive" style="height: 300px !important;">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th >Item Name</th>
+                      <th >Item Code</th>
+                      <th >Opening</th>
+                      <th >Added</th>
+                      <th >Used</th>
+                      <th>Book Stock</th>
+                      <th>Physical Stock</th>
+                      <th class="text-center">Variance</th>
+                      <th>Loss (Rs. 000)</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let value of values">
+                  
+                      <td >{{value.name }}</td>
+                      <td >{{value.code }}</td>
+                      <td >{{value.opening }}</td>
+                      <td>{{value.added}}</td>
+                      <td>{{value.used}}</td>
+                      <td>{{value.book}}</td>
+                      <td>{{value.physical}}</td>
+                      <td class="text-center">{{value.variance}}</td>
+                      <td *ngIf="0 > value.loss">({{value.loss}})</td>
+                      <td *ngIf="value.loss>0" style="color: red;">{{value.loss}}</td>
+
+                  </tr>
+ 
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+<mat-dialog-actions class="col-sm-12" align="end">
+  <button mat-raised-button class="CancelClass" (click)="close()">
+    &nbsp;Close
+  </button>
+</mat-dialog-actions>

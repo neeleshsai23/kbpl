@@ -1,0 +1,107 @@
+
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    Upload Measurement Book
+  </h1>
+</div>
+<mat-horizontal-stepper #stepper>
+    <mat-step>
+        <div mat-dialog-content>
+            <form class="form-horizontal">
+                <ng-template matStepLabel>Upload File</ng-template>
+                <div class="form-group">
+                  <label class="control-label col-sm-3 add-member-label">Upload File : </label>
+                  <input type="file" style="margin-top: 5px;">
+                  <!--<div class="col-sm-8">
+                    <input type="file" style="display: none" #fileInput accept="image/*" (change)="onChangeFileInput()" />
+                    <button mat-raised-button  class="file-select-button" (click)="onClickFileInputButton()">
+                      
+                      Choose file
+                    </button>
+            
+                    <p class="file-name" *ngIf="!file; else fileName"></p>
+                    <ng-template #fileName>
+                      <p class="file-name">{{ file?.name }}</p>
+                    </ng-template>
+                  </div>-->
+                </div>
+            </form>
+          </div>
+          <mat-dialog-actions class="col-sm-12" align="end">
+              <button mat-raised-button   [ngClass]="'btn-primary'" matStepperNext><mat-icon>arrow_forward</mat-icon>&nbsp;Proceed</button>
+
+              <button mat-raised-button class="CancelClass" (click)="close()">&nbsp;Close</button>
+            </mat-dialog-actions>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Preview & Confirm</ng-template>
+      <div class="row">
+        <div class="col-xs-12">
+            <div id="grid-table-container" class="table-responsive" >
+              <table matSort id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr>
+                        <th >Serial No.</th>
+                        <th >Category</th>
+                        <th >Item</th>
+                        <th >Description</th>
+                        <th >Unit</th>
+                        <th >Target Quantity</th>
+                        <th >Previous Quantity</th>
+                        <th >Current Quantity</th>
+                        <th >Rate</th>
+                        <th >Billed</th>
+                        <th >Paid</th>
+                        <th >Balance</th>
+                        <th >Current Bill</th>
+                        <th >Receivable</th>
+                        <th >Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let value of values">
+                    
+                        <td >{{value.serial }}</td>
+                        <td >{{value.category }}</td>
+                        <td >{{value.item }}</td>
+                        <td>{{value.description}}</td>
+                        <td>{{value.unit}}</td>
+                        <td>{{value.target}}</td>
+                        <td>{{value.previousq}}</td>
+                        <td>{{value.currentq}}</td>
+                        <td>{{value.rate}}</td>
+                        <td>{{value.billed}}</td>
+                        <td>{{value.paid}}</td>
+                        <td>{{value.balance}}</td>
+                        <td>{{value.current}}</td>
+                        <td>{{value.receivable}}</td>
+                        <td>{{value.notes}}</td>
+                    </tr>
+   
+                </tbody>
+            </table>
+      
+          </div>
+        </div>
+      </div>
+              <mat-dialog-actions class="col-sm-12" align="end">
+                <!-- <button *ngIf="!project"mat-raised-button [disabled]="!projectForm.valid" 
+                  [ngClass]="!projectForm.valid ? '' : 'btn-primary'">
+                  <mat-icon>send</mat-icon>&nbsp;Save
+                </button>
+                <button *ngIf="project" mat-raised-button [disabled]="!projectForm.valid" 
+                  [ngClass]="!projectForm.valid ? '' : 'btn-primary'">
+                  <mat-icon>update</mat-icon>&nbsp;Update
+                </button> -->
+                <button mat-raised-button class="btn-primary" (click)="close()">
+                  &nbsp;Confirm
+                </button>
+                <button mat-raised-button class="CancelClass" (click)="close()">
+                  &nbsp;Close
+                </button>
+              </mat-dialog-actions>
+      </mat-step>
+ </mat-horizontal-stepper>
+
+
+

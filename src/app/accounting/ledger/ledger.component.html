@@ -1,0 +1,53 @@
+<div fxLayout="row wrap">
+  <div class="w-100">
+    <div fxLayout="row">
+      <div class="col-xs-12">
+        <div class="pills">
+          <ul class="nav nav-pills" style="margin-top: 15px;">
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/ledger/contractors-list']">
+                <mat-icon>receipt</mat-icon> Contractors List
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/ledger/current-assets']">
+                <mat-icon>crop_square</mat-icon> Current Assets
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/ledger/current-liabilities']">
+                <mat-icon>analytics</mat-icon> Current Liabilities
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/ledger/expences']">
+                <mat-icon>layers </mat-icon> Expences
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/ledger/fixed-assets']">
+                <mat-icon>settings</mat-icon> Fixed Assets
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/ledger/sub-heads']">
+                <mat-icon>group</mat-icon> Sub Heads
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/ledger/vendor-list']">
+                <mat-icon>attach_money </mat-icon> Vendor List
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/accounting/ledger/vendor-summary']">
+                <mat-icon>today </mat-icon> Vendor Summary
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

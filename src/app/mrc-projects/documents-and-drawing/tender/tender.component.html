@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-sm-12 pull-right no-padding">
+  
+    
+    
+    <button  style="margin-bottom:10px;margin-right: 10px;" mat-raised-button class="pull-right btn-primary" (click)="openAddDocument('Add')">
+        <mat-icon>add</mat-icon> Add Document
+    </button>
+    
+  </div>
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th>Serial No.</th>
+                      <th class="text-center">Name</th>
+                      <th class="text-center">Description</th>
+                      <th class="text-center">Date</th>
+                      <th class="text-center">Document</th>
+                     
+                      <th class="text-center" style="width: 112px!important;">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of items">
+                      <td style="min-width: 70px !important;"><a>
+                          {{item.project_code}}
+                      </a>
+                  </td>
+                  <!-- <td style="text-align: center!important;">{{item.projectNumber}}</td> -->
+                  <td style="text-align: center!important;">{{item.project_name }}</td>
+                  <td style="text-align: center!important;">{{item.consultant }}</td>
+                  <td style="text-align: center!important;">{{item.la_date }}</td>
+                  <td style="text-align: center!important;"><a style="color: blue;cursor:pointer" href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank">View</a></td>
+                
+                  <!-- <td style="text-align: center!important;">{{item.agreement_date }}</td>
+                  <td style="text-align: center!important;">{{item.start_date }}</td>
+                  <td style="text-align: center!important;">{{item.target_date }}</td>
+                  <td style="text-align: center!important;">{{item.total_cost }}</td>
+                  <td style="text-align: center!important;">{{item.billed }}</td>
+                  <td style="text-align: center!important;">{{item.paid }}</td>
+                  <td style="text-align: center!important;">{{item.margin }}</td>
+                  <td style="text-align: center!important;">{{item.completion }}</td> -->
+                  
+ 
+          <!-- <td style="text-align: center!important;">{{item.awardedAmount}}</td> -->
+          <!-- <td >
+              <a 
+              [ngClass]="item.bt_status ? 'status' : 'status Red'"
+              mwlConfirmationPopover
+              [popoverTitle]="popoverStatusTitle"
+              [popoverMessage]="popoverStatusMessage"
+              placement="left"
+              (confirm)="cancelClicked = true"
+              (cancel)="cancelClicked = true">
+              {{item.bt_status?'Active':'Inactive'}}
+          </a>
+      </td> -->
+      <td  class="text-center">
+          <a style="cursor: pointer;margin-right:10px; " >
+              <i class="fa fa-edit" style="color: cornflowerblue"></i>
+          </a>
+          <a ><i class="fa fa-trash red"   style="cursor: pointer;"(click)="openDeleteDialog(item)"></i></a>
+      </td> 
+  </tr>
+ 
+</tbody>
+</table>
+<mat-paginator 
+[pageSizeOptions]="[9, 10, 25, 50, 100]"
+showFirstLastButtons></mat-paginator>
+<!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)"
+  showFirstLastButtons></mat-paginator> -->
+</div>
+</div>
+</div>

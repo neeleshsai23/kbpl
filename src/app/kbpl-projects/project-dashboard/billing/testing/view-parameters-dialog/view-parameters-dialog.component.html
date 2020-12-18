@@ -1,0 +1,39 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>
+    View Parameters
+  </h1>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+      <div id="grid-table-container" class="table-responsive">
+          <table matSort id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr>
+                      <th >Parameter</th>
+                      <th >Reference Range</th>
+                      <th >Unit</th>
+                      <th >Actual Value</th>
+                      <th >Remarks</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let value of values">
+                  
+                      <td >{{value.parameter }}</td>
+                      <td >{{value.range }}</td>
+                      <td >{{value.unit }}</td>
+                      <td>{{value.actual_value}}</td>
+                      <td>{{value.remarks}}</td>
+                  </tr>
+ 
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+<mat-dialog-actions class="col-sm-12" align="end">
+  <button mat-raised-button class="CancelClass" (click)="close()">
+    &nbsp;Close
+  </button>
+</mat-dialog-actions>

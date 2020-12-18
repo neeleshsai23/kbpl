@@ -1,0 +1,39 @@
+<div class="row-wrap">
+  <div class="w-100">
+    <div fxLayout="row">
+      <div class="col-xs-12">
+        <div class="pills">
+          <ul class="nav nav-pills" style="margin-top: 15px;">
+            <!-- <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/contracts/project-dashboard/billing/client-ra-bills']">
+                <mat-icon>grid_on</mat-icon> Client RA Bills
+              </a>
+            </li> -->
+           
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/projects/project-dashboard/billing/sc-advances']">
+                <mat-icon>place </mat-icon> SC Advances
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/projects/project-dashboard/billing/sc-ra-bills']">
+                <mat-icon>layers</mat-icon> SC RA Bills
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/projects/project-dashboard/billing/reconciliation']">
+                <mat-icon>crop_square</mat-icon> Reconciliation
+              </a>
+            </li>
+            <li routerLinkActive="active">
+              <a mat-raised-button class="navtabWidth" [routerLink]="['/mrc/projects/project-dashboard/billing/testing']">
+                <mat-icon>description</mat-icon> Test Log
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
